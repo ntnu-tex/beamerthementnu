@@ -12,8 +12,8 @@ both in 4:3 and 16:9 format. Notably, the campus dependent version and
 16:10 format is *not* implemented.
 
 If you have technical questions, please contact [Martin Strand]
-(martin.strand@math.ntnu.no). Do not send such questions to the NTNU
-Communications Division.
+(https://www.ntnu.edu/employees/martin.strand). Do not send such 
+questions to the NTNU Communications Division.
 
 
 ## Usage
