@@ -10,6 +10,7 @@
 \mode<presentation>
 
 \RequirePackage{helvet}
+\RequirePackage[absolute,overlay]{textpos}
 
 \DeclareOptionBeamer{style}{\def\beamer@ntnu@style{#1}}  
 \DeclareOptionBeamer{language}{\def\beamer@ntnu@language{#1}}
@@ -79,17 +80,23 @@
 \case{\isequal{\beamer@ntnu@style}{vertical}}
    \setbeamercolor{footline}{fg=white}
    \def\footlinealign{left}
-   \def\titleoffset{.1}
+   \def\titlex{50pt}
+   \def\titley{70pt}
+   \def\pgnumoffset{7pt}
    \setbeamersize{text margin left=2cm,text margin right=1em}
 \case{\isequal{\beamer@ntnu@style}{horizontal}}
    \setbeamercolor{footline}{fg=white}
    \def\footlinealign{left}
-   \def\titleoffset{.1}
+   \def\titlex{30pt}
+   \def\titley{70pt}
+   \def\pgnumoffset{0pt}
    \setbeamersize{text margin left=1cm,text margin right=1em}
 \otherwise
    \setbeamercolor{footline}{fg=black}
    \def\footlinealign{right}
-   \def\titleoffset{.3}
+   \def\titlex{16pt}
+   \def\titley{110pt}
+   \def\pgnumoffset{0pt}
    \setbeamersize{text margin left=1cm,text margin right=1em}
 \endswitch
 
@@ -145,7 +152,8 @@
 %      \pgfuseimage{skapendeunivlite}%
 %    }%
   \hbox{%
-    \begin{beamercolorbox}[wd=.95\textwidth,ht=5mm,dp=2.5mm,\footlinealign]{footline}%
+    \hspace{\pgnumoffset}
+    \begin{beamercolorbox}[wd=.95\textwidth,ht=5mm,dp=2.0mm,\footlinealign]{footline}%
       \hspace{2mm}\usebeamerfont{footline}\textbf{\insertframenumber}%
     \end{beamercolorbox}%
 %    \begin{beamercolorbox}[wd=0.8\textwidth,ht=5mm,dp=2mm,right]{ffootline}%
@@ -175,8 +183,9 @@
 % Setter opp teksten på forsida (tittel på foredrag, foredragsholder etc..
 \defbeamertemplate*{title page}{ntnu}[1][]
 {%
-  \vspace{\titleoffset \paperheight}
+%  \vspace{\titleoffset \paperheight}
 %  \begin{flushleft}
+\begin{textblock*}{\paperwidth}(\titlex,\titley)
     \begin{beamercolorbox}[sep=3pt,left,leftskip=.2cm,#1]{title}
       \usebeamerfont{title}\inserttitle\par%
       \ifx\insertsubtitle\@empty%
@@ -195,8 +204,9 @@
     \begin{beamercolorbox}[sep=3pt,left,leftskip=.2cm,#1]{date}
       \usebeamerfont{date}\insertdate
     \end{beamercolorbox}
+\end{textblock*}
 %  \end{flushleft}
-  \vfill
+%  \vfill
 }
 
 
@@ -262,7 +272,7 @@
 \setbeamerfont{author}{size=\normalsize}
 \setbeamerfont{date}{size=\normalsize}
 \setbeamerfont{institute}{size=\normalsize}
-\setbeamerfont{frametitle}{size=\LARGE,series=\bfseries}
+\setbeamerfont{frametitle}{size=\large, series=\bfseries}
 \setbeamerfont{pagenumber}{size=\small,series=\bfseries}
 
 
