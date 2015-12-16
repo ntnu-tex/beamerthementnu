@@ -33,13 +33,13 @@ along with the special title page command
 A minimal working example
 
 ```latex
-\documentclass[screen, aspectratio=169]{beamer}
+\documentclass[screen, aspectratio=43]{beamer}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 
 % Use the NTNU-temaet for beamer 
-% \usetheme[style=ntnu|simple|vertical|horizontal, language=bm|nn|en]{ntnu}
-\usetheme[style=ntnu,language=en]{ntnu}
+% \usetheme[style=ntnu|simple|vertical|horizontal, language=bm|nn|en]{ntnu2015}
+\usetheme[style=ntnu,language=en]{ntnu2015}
  
 \title[Short title]{The full and long title of the presentation}
 \subtitle{Subtitle if you want}
@@ -67,10 +67,14 @@ A minimal working example
 
 ## Installation
 
+Simply copy the folder `beamerntnu2015` into your `texmf/tex/latex` folder. 
+The precise location varies on different operation systems. 
+
 
 ## Known issues
 
  - The **simple** template is not localised
+
 
 ## Contributions and license
 
