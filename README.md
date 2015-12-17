@@ -21,7 +21,7 @@ questions to the NTNU Communications Division.
 The basic usage is the command
 
 ```latex
-\usetheme[style=ntnu|simple|vertical|horizontal, language=bm|nn|en]{ntnu}
+\usetheme[style=ntnu|simple|vertical|horizontal, language=bm|nn|en]{ntnu2015}
 ```
 
 along with the special title page command
