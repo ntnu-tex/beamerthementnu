@@ -9,7 +9,7 @@ beamer. See usage example below.
 
 The single theme can produce almost all the different templates, and
 both in 4:3 and 16:9 format. Notably, the campus dependent version and
-16:10 format is *not* implemented.
+16:10 format are *not* implemented.
 
 If you have technical questions, please contact [Martin Strand]
 (https://www.ntnu.edu/employees/martin.strand). Do not send such 
