@@ -1,0 +1,47 @@
+\documentclass[screen, aspectratio=43]{beamer}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% Use the NTNU-temaet for beamer 
+% \usetheme[style=ntnu|simple|vertical|horizontal, language=bm|nn|en]{ntnu2015}
+\usetheme[style=ntnu,language=en]{ntnu2015}
+
+\usepackage[english]{babel}
+\usepackage[style=numeric,backend=biber,natbib=false,sorting=none]{biblatex}
+
+\title[Short title]{The full and long title of the presentation}
+\subtitle{Subtitle if you want}
+\author[O. Nordmann]{Ola Nordmann}
+\institute[NTNU]{Department of LaTeX-ical sciences, NTNU}
+\date{1 January 1970}
+%\date{} % To have an empty date
+
+\addbibresource{example2.bib} % Add bibliography database
+
+% Set the reference style to numeric.
+% See here: http://tex.stackexchange.com/questions/68080/beamer-bibliography-icon
+\setbeamertemplate{bibliography item}[text] 
+
+% Set bibliography fonts to a small size.
+\renewcommand*{\bibfont}{\footnotesize}
+
+
+\begin{document}
+
+% Special title page command to get a different background
+\ntnutitlepage
+
+\begin{frame}
+  \frametitle{Main theorem}
+  \begin{theorem}
+    LaTeX makes things easier\cite{latex}.
+  \end{theorem}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{References}
+  \printbibliography
+\end{frame}
+
+\end{document}

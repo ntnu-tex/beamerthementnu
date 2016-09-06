@@ -276,5 +276,14 @@
 \setbeamerfont{pagenumber}{size=\small,series=\bfseries}
 
 
+% Textpos conflicts with biblatex, they both define ifboolexpr.
+% This is a workaround to undefine the conflicting macro.
+% But we only undefine it, if it was defined. (textpos might change later)
+\ifcsname ifboolexpr\endcsname
+\makeatletter
+\let\ifboolexpr\@undefined
+\makeatother
+\fi
+
 \mode
 <all>

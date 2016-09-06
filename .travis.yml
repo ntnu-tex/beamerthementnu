@@ -1,0 +1,16 @@
+# Travis CI configuration file
+notifications:
+  email: false
+
+dist: trusty
+
+sudo: required
+
+addons:
+  apt:
+    packages:
+      - texlive-full
+      - biber
+
+script:
+  - make -C beamerntnu2015
