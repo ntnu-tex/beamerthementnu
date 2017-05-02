@@ -68,7 +68,7 @@ A minimal working example
 ## Installation
 
 Simply copy the folder `beamerntnu2015` into your `texmf/tex/latex` folder. 
-The precise location varies on different operation systems. 
+The precise location varies on different operating systems. 
 
 
 ## Known issues
