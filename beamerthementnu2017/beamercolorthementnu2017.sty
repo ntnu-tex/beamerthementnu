@@ -1,0 +1,77 @@
+\mode<presentation>
+
+\DeclareOptionBeamer{style}{\def\beamer@ntnu@style{#1}}
+\ProcessOptionsBeamer\relax
+
+% NTNU color definitions
+\definecolor{ntnublue}       {RGB}{0,80,158}
+\definecolor{ntnumustard}	   {RGB}{241,210,130}
+\definecolor{ntnuteal}       {RGB}{92,190,201}
+\definecolor{ntnulime}       {RGB}{213,209,14}
+\definecolor{ntnulatte}	     {RGB}{223,216,197}
+\definecolor{ntnucornflower} {RGB}{121,162,206}
+\definecolor{ntnupea}        {RGB}{201,212,178}
+\definecolor{ntnubeige}	     {RGB}{204,189,143}
+\definecolor{ntnupink}       {RGB}{173,32,142}
+\definecolor{ntnusky}	       {RGB}{221,231,238}
+\definecolor{ntnubrown}      {RGB}{144,73,45}
+\definecolor{ntnupurple}     {RGB}{85,41,136}
+\definecolor{ntnuorange}     {RGB}{245,128,37}
+
+\setbeamercolor{normal text}{fg=black,bg=white}
+\setbeamercolor{alerted text}{fg=red}
+\setbeamercolor{example text}{fg=ntnublue!50!black}
+\setbeamercolor{structure}{fg=ntnublue}
+\setbeamercolor{background canvas}{parent=normal text}
+\setbeamercolor{background}{parent=background canvas}
+
+\setbeamercolor{places}{fg=gray}
+
+\setbeamercolor*{itemize item}{fg=black}
+\setbeamercolor*{itemize subitem}{fg=black}
+\setbeamercolor*{itemize subsubitem}{fg=black}
+\setbeamercolor*{enumerate item}{fg=black}
+\setbeamercolor*{enumerate subitem}{fg=black}
+\setbeamercolor*{enumerate subsubitem}{fg=black}
+\setbeamercolor*{title}{fg=black}
+\setbeamercolor*{subtitle}{fg=gray}
+\setbeamercolor*{frametitle}{fg=black}
+\setbeamercolor*{framesubtitle}{fg=gray}
+\setbeamercolor*{author}{fg=gray}
+\setbeamercolor*{date}{fg=gray}
+\setbeamercolor*{institute}{fg=gray}
+\setbeamercolor*{frametitle}{fg=black}
+
+\ExplSyntaxOn
+\str_case_x:nn {\beamer@ntnu@style} {
+  {vertical} 
+    {
+      \setbeamercolor{footline}{fg=white}
+    }
+  {horizontal}
+    {
+      \setbeamercolor{footline}{fg=white}
+      \setbeamercolor{footline}{bg=ntnublue}
+    }
+  {simple}
+    {
+      \setbeamercolor{footline}{bg=white}
+      \setbeamercolor{footline}{fg=black}
+    }
+  {ntnu}
+    {
+      \setbeamercolor{footline}{fg=black}
+    }
+}
+\ExplSyntaxOff
+
+% Blocks
+\setbeamertemplate{blocks}[]
+\setbeamercolor{block title}{fg=white,bg=ntnublue}
+\setbeamercolor{block title example}{parent=block title}
+\setbeamercolor{block body}{parent=normal text,%
+  use=block title,bg=ntnusky}
+\setbeamercolor{block body example}{parent=block body}
+
+\mode
+<all>

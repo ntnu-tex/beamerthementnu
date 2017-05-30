@@ -1,0 +1,203 @@
+\mode<presentation>
+
+% Prepare options
+\DeclareOptionBeamer{style}{\def\beamer@ntnu@style{#1}}
+\DeclareOptionBeamer{language}{\def\beamer@ntnu@language{#1}}
+\DeclareOptionBeamer{city}{\def\beamer@ntnu@city{#1}}
+\ProcessOptionsBeamer
+
+\usepackage{beamerntnu2017common}
+\usepackage{rotating}   % For cities
+
+% Title pages
+\defbeamertemplate{title page}{base}[1][]
+{
+\begin{textblock*}{\paperwidth}(\titlex,\titley)
+    \begin{beamercolorbox}[sep=3pt,left,leftskip=.2cm,#1]{title}
+      \usebeamerfont{title}\inserttitle\par%
+      \ifx\insertsubtitle\@empty%
+      \else%
+        \vskip0.25em%
+        {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+      \fi%     
+    \end{beamercolorbox}%
+    \vskip1em\par
+    \begin{beamercolorbox}[sep=3pt,left,leftskip=.2cm,#1]{author}
+      \usebeamerfont{author}\insertauthor
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[sep=3pt,left,leftskip=.2cm,#1]{institute}
+      \usebeamerfont{institute}\insertinstitute
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[sep=3pt,left,leftskip=.2cm,#1]{date}
+      \usebeamerfont{date}\insertdate
+    \end{beamercolorbox}
+\end{textblock*}
+}
+
+% Variables
+\ExplSyntaxOn
+\str_case_x:nnF {\aspect} {
+  {169} {
+    \def\blockwidth{4.1mm}
+    \def\blockx{15.1cm}
+    \def\blocky{4.9mm}
+    \def\logoheight{1.5cm}
+    \def\circleheight{3.0cm}
+    \def\circlex{11.5cm}
+  }
+}
+{ % Otherwise: 43, we should assume, but let's catch all
+  \def\blockwidth{3.7mm}
+  \def\blockx{12.1cm}
+  \def\blocky{4.5mm}
+  \def\logoheight{1.15cm}
+  \def\circleheight{2.6cm}
+  \def\circlex{9.0cm}
+}
+
+\str_case_x:nnF {\beamer@ntnu@style} {
+  {vertical} {
+    \def\titlex{45pt}
+    \def\titley{55pt}
+  }
+  {horizontal} {
+    \def\titlex{20pt}
+    \def\titley{50pt}
+  }
+}
+{  % "False"
+  \def\titlex{20pt}
+  \def\titley{90pt}
+}
+\ExplSyntaxOff
+
+
+% Define macros for marking the city the user belongs to. Can be used
+% with every template.
+\defbeamertemplate{places}{none}
+{%
+}
+\defbeamertemplate{places}{all}
+{%
+  \begin{textblock*}{\blockwidth}(\blockx,\blocky)
+    \begin{beamercolorbox}{places}
+      \begin{turn}{90}
+        Trondheim -- Gj{\o}vik -- {\AA}lesund
+      \end{turn}
+    \end{beamercolorbox}
+  \end{textblock*}
+}
+\defbeamertemplate{places}{trondheim}
+{%
+  \begin{textblock*}{\blockwidth}(\blockx,\blocky)
+    \begin{beamercolorbox}{places}
+      \begin{turn}{90}
+        \textbf{Trondheim} -- Gj{\o}vik -- {\AA}lesund
+      \end{turn}
+    \end{beamercolorbox}
+  \end{textblock*}
+}
+\defbeamertemplate{places}{gjovik}
+{%
+  \begin{textblock*}{\blockwidth}(\blockx,\blocky)
+    \begin{beamercolorbox}{places}
+      \begin{turn}{90}
+        Trondheim -- \textbf{Gj{\o}vik} -- {\AA}lesund
+      \end{turn}
+    \end{beamercolorbox}
+  \end{textblock*}
+}
+\defbeamertemplate{places}{alesund}
+{%
+  \begin{textblock*}{\blockwidth}(\blockx,\blocky)
+    \begin{beamercolorbox}{places}
+      \begin{turn}{90}
+        Trondheim -- Gj{\o}vik -- \textbf{{\AA}lesund}
+      \end{turn}
+    \end{beamercolorbox}
+  \end{textblock*}
+}
+\setbeamertemplate{places}[\beamer@ntnu@city]
+
+
+% Define the title pages
+
+\defbeamertemplate{title page}{horizontal}[1][]
+{
+  {%
+    \setbeamertemplate{title page}[base]%
+    \titlepage%
+  }
+
+  \ifnum\isequal{\beamer@ntnu@city}{none}=0
+    \begin{textblock*}{\blockwidth}(\blockx,\blocky) % {block width} (coords)
+      \includegraphics[width=\blockwidth]{gfx/tekst-\beamer@ntnu@language}
+    \end{textblock*}
+  \else
+    \usebeamertemplate{places}
+  \fi
+}
+
+\defbeamertemplate{title page}{vertical}[1][]
+{
+  {%
+    \setbeamertemplate{title page}[base]%
+    \titlepage%
+  }
+  \begin{textblock*}{68.1747pt}(0cm,0mm) % {block width} (coords)
+    \includegraphics[height=\paperheight]{gfx/vertical-\beamer@ntnu@language-\aspect}
+  \end{textblock*}
+
+  \ifnum\isequal{\beamer@ntnu@city}{none}=0
+  \else
+    \usebeamertemplate{places}
+  \fi
+}
+
+\defbeamertemplate{title page}{ntnu}[1][]
+{
+  {%
+    \setbeamertemplate{title page}[base]%
+    \titlepage%
+  }
+
+  \begin{textblock*}{207pt}(.8cm,.9cm) % {block width} (coords)
+    \includegraphics[height=\logoheight]{gfx/ntnu-\beamer@ntnu@language}
+  \end{textblock*}
+    
+  \ifnum\isequal{\beamer@ntnu@city}{none}=0
+    \begin{textblock*}{170pt}(\circlex,.7cm) % {block width} (coords)
+      \includegraphics[height=\circleheight]{gfx/sirkler}
+    \end{textblock*}
+  \else
+    \usebeamertemplate{places}
+  \fi
+}
+
+\defbeamertemplate{title page}{simple}[1][]
+{
+  {%
+    \setbeamertemplate{title page}[base]%
+    \titlepage%
+  }
+  \begin{textblock*}{207pt}(.8cm,.9cm) % {block width} (coords)
+    \includegraphics[height=\logoheight]{gfx/ntnu-\beamer@ntnu@language}
+  \end{textblock*}
+  
+
+  \ifnum\isequal{\beamer@ntnu@city}{none}=0
+  \else
+    \usebeamertemplate{places}
+  \fi
+}
+
+% Set title page based on option
+\setbeamertemplate{title page}[\beamer@ntnu@style]
+
+% Items
+\defbeamertemplate*{itemize item}{ntnu}{---}
+\defbeamertemplate*{itemize subitem}{ntnu}{$\bullet$}
+\defbeamertemplate*{itemize subsubitem}{ntnu}{---}
+
+\mode
+<all>

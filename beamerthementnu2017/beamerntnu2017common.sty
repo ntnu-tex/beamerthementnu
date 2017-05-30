@@ -1,0 +1,44 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamerntnu2017common}%[2017-01-06 Common code for NTNU beamer templates]
+
+\RequirePackage{xparse}
+\RequirePackage{pdftexcmds}
+
+% Define a string equality test
+\long\def\isequal#1#2{\pdf@strcmp{#1}{#2}}
+
+% Get the aspect ratio, 
+% http://tex.stackexchange.com/questions/123106/detect-aspect-ratio-in-beamer
+\ExplSyntaxOn
+
+\NewDocumentCommand{\ifaspectratio}{mmm}
+{
+  % Recover the option from those passed to the class
+  \keys_set:nf { zunbeltz/beameroptions } { \use:c { opt@beamer.cls } }
+  \str_if_eq:nVTF { #1 } \l_zunbeltz_aspectratio_tl { #2 } { #3 }
+}
+
+\NewDocumentCommand{\xifaspectratio}{mO{}}
+{
+  % Recover the option from those passed to the class
+  \keys_set:nf { zunbeltz/beameroptions } { \use:c { opt@beamer.cls } }
+  \str_case:Vnn \l_zunbeltz_aspectratio_tl { #1 } { #2 }
+}
+
+% We need to define only one key, the other are treated as `unknown'
+\keys_define:nn { zunbeltz/beameroptions }
+{
+  aspectratio .tl_set:N = \l_zunbeltz_aspectratio_tl,
+  aspectratio .initial:n = 43,
+  unknown .code:n = {},
+}
+
+% Generate the variants we need
+\cs_generate_variant:Nn \keys_set:nn {nf}
+\cs_generate_variant:Nn \str_if_eq:nnTF {nV}
+\cs_generate_variant:Nn \str_case:nnF {V}
+
+\ExplSyntaxOff
+% Aspect ration detection finished
+
+\ifaspectratio{169}{\def\aspect{169}}{\def\aspect{43}}

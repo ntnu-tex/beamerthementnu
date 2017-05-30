@@ -5,3 +5,7 @@
 *.out
 *.snm
 *.toc
+*.bbl
+*.bcf
+*.blg
+*.xml
