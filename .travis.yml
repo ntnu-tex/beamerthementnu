@@ -14,3 +14,4 @@ addons:
 
 script:
   - make -C beamerntnu2015
+  - make -C beamerthementnu2017
