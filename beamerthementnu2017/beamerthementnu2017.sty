@@ -64,18 +64,26 @@
 % Turn off navigation symbols
 \setbeamertemplate{navigation symbols}{}
 
+
+% Do some fancy redefining of the title page to get a different footline
+% and background.
+\def\titlestyle{title\beamer@ntnu@style}
+\makeatletter
+\def\ps@navigation@titlepage{%
+    \setbeamertemplate{footline}[\titlestyle]
+    \setbeamertemplate{background}[\titlestyle]
+  \@nameuse{ps@navigation}}
+\addtobeamertemplate{title page}{\thispagestyle{navigation@titlepage}}{}
+\makeatother
+
+
 % Command to print a title page. The standard beamer method is now
 % preferred, this is kept for backwards compatibility only.
 
 \newcommand{\ntnutitlepage}{%
-  {% open a TeX group to keep changes local
-    \def\styletitle{title\beamer@ntnu@style}
-    \setbeamertemplate{footline}[title\beamer@ntnu@style]
-    \setbeamertemplate{background}[title\beamer@ntnu@style]
     \begin{frame}%
       \titlepage%
     \end{frame}%
-  }%
 }
 
 \mode<all>

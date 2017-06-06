@@ -49,16 +49,13 @@
 
 \defbeamertemplate{background}{ntnu}
 {
-  \ifnum \insertpagenumber=1
-  \else
-    \begin{picture}(0,0)
-      \setlength{\unitlength}{1.0cm}
-      \put(\circlesx,\circlesy){\includegraphics[width=\circlesw]{gfx/sirkler}}
-    \end{picture}
-  \fi%
+  \begin{picture}(0,0)
+    \setlength{\unitlength}{1.0cm}
+    \put(\circlesx,\circlesy){\includegraphics[width=\circlesw]{gfx/sirkler}}
+  \end{picture}
 }
 
-% Define empty backgrounds for use with \ntnutitlepage
+% Define empty backgrounds for use with titlepage
 \defbeamertemplate{background}{titlehorizontal}{}
 \defbeamertemplate{background}{titleverticall}{}
 \defbeamertemplate{background}{titlesimple}{}
@@ -95,13 +92,8 @@
 \defbeamertemplate{footline}{horizontal}
 {
   \hbox{%
-    % Don't print the slide number on the first slide, usually 
-    % the title slide.
     \begin{beamercolorbox}[wd=\paperwidth,ht=\barheight,dp=\barmargin]{footline}%
-      \ifnum \insertpagenumber=1
-      \else
-        \hspace{4mm}\usebeamerfont{pagenumber}\textbf{\insertframenumber}%
-      \fi%
+      \hspace{4mm}\usebeamerfont{pagenumber}\textbf{\insertframenumber}%
       \hfill \raisebox{\logooffset}{\includegraphics[width=\logowidth]{gfx/ntnu-inverted}}%
     \end{beamercolorbox}%
   }
@@ -110,13 +102,8 @@
 \defbeamertemplate{footline}{vertical}
 {
   \hbox{%
-    % Don't print the slide number on the first slide, usually  
-    % the title slide.
     \begin{beamercolorbox}[wd=\paperwidth,ht=\barheight,dp=\barmargin]{footline}%
-      \ifnum \insertpagenumber=1
-      \else
-        \hspace{5mm}\usebeamerfont{pagenumber}\textbf{\insertframenumber}%
-      \fi%
+      \hspace{5mm}\usebeamerfont{pagenumber}\textbf{\insertframenumber}%
       \hfill
     \end{beamercolorbox}%
   }
@@ -129,37 +116,23 @@
 
 \defbeamertemplate{footline}{simple}
 {
-  % Don't print footline on the first slide, usually
-  % the title slide.
   \hbox{ 
-    \ifnum \insertpagenumber=1
-      \begin{beamercolorbox}[wd=\paperwidth,ht=\barheight,dp=\simplebarmargin]{footline}%
-        % Removing these two lines will make the footline disappear for
-        % other slides as well. I'll call that a bug.
-      \end{beamercolorbox}%
-    \else
-      \begin{beamercolorbox}[wd=\paperwidth,ht=\barheight,dp=\simplebarmargin]{footline}%
-        \hspace*{\simplelogooffset}
-        \raisebox{\logooffset}{\includegraphics[width=\simplelogowidth]{gfx/ntnu}}%
-        \usebeamertemplate*{slogan}
-        \hfill
-        \usebeamerfont{pagenumber}\textbf{\insertframenumber}\hspace*{5mm}%
-      \end{beamercolorbox}%
-    \fi%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=\barheight,dp=\simplebarmargin]{footline}%
+      \hspace*{\simplelogooffset}
+      \raisebox{\logooffset}{\includegraphics[width=\simplelogowidth]{gfx/ntnu}}%
+      \usebeamertemplate*{slogan}
+      \hfill
+      \usebeamerfont{pagenumber}\textbf{\insertframenumber}\hspace*{5mm}%
+    \end{beamercolorbox}%
   }
 }
 
 \defbeamertemplate{footline}{ntnu}
 {
   \hbox{%
-    % Don't print the slide number on the first slide, usually 
-    % the title slide.
     \begin{beamercolorbox}[wd=\paperwidth,ht=\barheight,dp=\barmargin]{footline}%
       \hfill
-      \ifnum \insertpagenumber=1
-      \else
-        \usebeamerfont{pagenumber}\textbf{\insertframenumber}\hspace*{5mm}%
-      \fi%
+      \usebeamerfont{pagenumber}\textbf{\insertframenumber}\hspace*{5mm}%
     \end{beamercolorbox}%
   }
 }
