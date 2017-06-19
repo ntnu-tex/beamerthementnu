@@ -76,6 +76,9 @@ A minimal working example
 Simply copy the folder `beamerthementnu2017` into your `texmf/tex/latex` folder. 
 The precise location varies on different operating systems. 
 
+TeX Live specific: A user have suggested that one can run `texhash` after 
+installing the files if LaTeX is unable to find the new theme.
+
 
 ## Known issues
 
