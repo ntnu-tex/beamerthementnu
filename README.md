@@ -1,7 +1,7 @@
 # beamerthementnu
 A LaTeX beamer theme for NTNU presentation templates.
 
-Mattia Veroni (IMF, IE) has taken over as maintainer for the project. 
+Mattia Veroni (IIK, IE) has taken over as maintainer for the project. 
 Future directions, including where it's hosted, rests with him. Stay tuned!
 
 
