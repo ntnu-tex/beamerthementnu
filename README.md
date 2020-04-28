@@ -14,7 +14,7 @@ The single theme can produce all the different templates, both in 4:3
 and 16:9 format. Starting from the 2017 edition, the theme also includes
 campus dependent versions of of all the variants.
 
-If you have technical questions, please contact [Martin Strand](https://www.ntnu.edu/employees/martin.strand). 
+If you have technical questions, please contact [Mattia Veroni](https://www.ntnu.edu/employees/mattia.veroni). 
 Do not send such questions to the NTNU Communications Division.
 
 
