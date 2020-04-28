@@ -1,0 +1,136 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage[english]{babel}
+\usepackage{xcolor}
+\usepackage{transparent}
+\usepackage[default,scale=1]{opensans}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\mode<presentation>
+{
+	\usefonttheme{structurebold}  % or try serif, structurebold, ...
+%Uncomment the following to display navigation symbols
+	\setbeamertemplate{navigation symbols}{}
+	%Constructing the frame title
+	\setbeamertemplate{frametitle}{% 
+		\kern1em\hskip-15pt
+		\usebeamercolor[fg]{section}% 
+		\usebeamerfont{section}% 
+		\insertsection
+	}
+	%Constructing the footline
+	\setbeamertemplate{footline}{% 
+		\kern1em\hskip3em% 
+		\includegraphics[width=0.3\textwidth]{ntnulogo_eng.png}
+		\hfill% 
+		\usebeamercolor[fg]{page number in head/foot}% 
+		\usebeamerfont{page number in head/foot}% 
+		\insertframenumber%
+%Uncomment the following line to display the total number of pages in the footnote
+		%\,/\,\inserttotalframenumber
+		\hskip12pt%
+		\kern1.5em\vskip2em% 
+}
+	%Defining fonts
+	\setbeamerfont{title}{shape=\bfseries, size=\huge}
+	\setbeamerfont{subtitle}{series=\mdseries,size=\Large}
+	
+	%Defining the colors. Here you can find more elements whose color can be modified:
+	%http://www.cpt.univ-mrs.fr/~masson/latex/Beamer-appearance-cheat-sheet.pdf
+	\definecolor{NTNUBlue}{HTML}{00509e}
+	\definecolor{LightGrey}{HTML}{D3D3D3}
+	\setbeamercolor{background canvas}{bg=NTNUBlue}
+	\setbeamercolor{title}{fg=white}
+	\setbeamercolor{subtitle}{fg=white}
+	\setbeamercolor{date}{fg=LightGrey}
+	\setbeamercolor{author}{fg=LightGrey}
+	\setbeamercolor{frametitle}{fg=NTNUBlue}
+	\setbeamercolor{itemize item}{fg=NTNUBlue}
+	\setbeamercolor{enumerate item}{fg=NTNUBlue}
+	\setbeamercolor{block title}{fg=NTNUBlue}
+} 
+	% Enforcing the final page
+	\AtEndDocument{\begin{frame}[plain, noframenumbering]
+		\begin{center}
+			\vspace{4em}
+			{\huge Thank your for your attention}\\
+			\vspace{5em}
+			\includegraphics[width=0.7\textwidth]{ntnulogo_eng.png}
+		\end{center}
+	\end{frame}
+	}
+
+% ---------->	Write here the content of the front page <----------
+	\title[Your Short Title]{Front page/ put your title here}
+	\subtitle{Subtitle. Author/date/year}
+	\institute{\includegraphics[width=0.7\textwidth]{ntnulogo_eng_neg.png}}
+	%Remember to uncomment the 3 lines in the next section in order to dsplay the author
+	\author{Name of the author}
+	%Remember to uncomment the 3 lines in the next section in order to dsplay the date
+	\date{\today}
+
+\begin{document}
+	
+	%----------------------------------Constructing the front page----------------------------------
+	\begin{frame}[plain, noframenumbering]
+		\vfill
+		\centering	
+		\begin{beamercolorbox}[sep=8pt,center,colsep=-4bp,rounded=true,shadow=true]{institute}
+			\usebeamerfont{institute}\insertinstitute
+		\end{beamercolorbox}	
+		\vskip2.5em\par
+		{\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}	
+		\begin{beamercolorbox}[sep=8pt,center,colsep=-4bp,rounded=true,shadow=true]{title}
+			\usebeamerfont{title}\MakeUppercase{\inserttitle}\par%
+			\ifx\insertsubtitle\@empty%
+			\else%
+			\vskip0.5em%
+			{\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+			\fi%     
+		\end{beamercolorbox}%
+		
+% ---------->	Uncomment the following to display author information <----------
+		%	\begin{beamercolorbox}[sep=8pt,center,colsep=-4bp,rounded=true,shadow=true]{author}
+		%		\usebeamerfont{author}\insertauthor
+		%	\end{beamercolorbox}
+		
+% ---------->	Uncomment the following to display date <----------
+		%	\begin{beamercolorbox}[sep=8pt,center,colsep=-4bp,rounded=true,shadow=true]{date}
+		%		\usebeamerfont{date}\insertdate
+		%	\end{beamercolorbox}\vskip0.5em
+
+% ---------->	If you add author or date, reduce the following space <----------
+		\vskip4em
+		
+	\end{frame}
+	
+	%Setting the background color to none
+	\setbeamercolor{background canvas}{bg=}
+	
+% ---------->	Uncomment these lines for an automatically generated table of contents. <----------
+	%\begin{frame}{Outline}
+	%  \tableofcontents
+	%\end{frame}
+	
+	%----------------------------------Example section: Introduction----------------------------------
+	\section{Introduction}
+	
+	\begin{frame}{Introduction}
+		
+		
+		\begin{itemize}
+			\item Write here the introduction
+			\item Use \texttt{itemize} or \texttt{enumerate} to organize your main points.
+		\end{itemize}
+				
+		\begin{block}{Example}
+			Rather than freely writing text in the frame, the use of blocks (such as this) is recommended.
+			Here is the links to a short guide on beamer:
+			\begin{enumerate}
+				\item https://www.overleaf.com/learn/latex/beamer
+			\end{enumerate}
+		\end{block}
+		
+	\end{frame}	
+	
+\end{document}
