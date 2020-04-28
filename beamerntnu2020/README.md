@@ -1,4 +1,4 @@
-# KolbjørnTemplates
+# beamerntnu2020
 Two LaTeX beamer templates for NTNU presentations requested by Kolbørn Skarpnes.
 
 ## Overview
