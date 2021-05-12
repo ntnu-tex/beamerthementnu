@@ -1,0 +1,29 @@
+%
+% Inner theme elements, most prominently the title page
+%
+\defbeamertemplate*{title page}{NTNU}{%
+    \begin{tikzpicture}[remember picture,overlay]%
+        \node[at=(current page.center),fill=NTNUBlue, minimum width=\paperwidth, minimum height=\paperheight] {};%
+    \end{tikzpicture}%
+		\vfill%
+		\centering
+		\begin{beamercolorbox}[sep=8pt,center,colsep=-4bp,rounded=true,shadow=true]{institute}
+			\usebeamerfont{institute}\insertinstitute
+		\end{beamercolorbox}
+		\vskip2.5em\par
+		{\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+		\begin{beamercolorbox}[sep=8pt,center,colsep=-4bp,rounded=true,shadow=true]{title}
+			\usebeamerfont{title}\MakeUppercase{\inserttitle}\par%
+			\ifx\insertsubtitle\@empty%
+			\else%
+			\vskip0.5em%
+			{\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+			\fi%
+		\end{beamercolorbox}%
+		\begin{beamercolorbox}[sep=8pt,center,colsep=-4bp,rounded=true,shadow=true]{author}
+			\usebeamerfont{author}\insertauthor
+		\end{beamercolorbox}
+		\begin{beamercolorbox}[sep=8pt,center,colsep=-4bp,rounded=true,shadow=true]{date}
+			\usebeamerfont{date}\insertdate
+		\end{beamercolorbox}\vskip0.5em
+}

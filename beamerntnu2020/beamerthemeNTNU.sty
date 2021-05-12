@@ -1,0 +1,63 @@
+\ProvidesPackage{beamerthemeNTNU}[2021/05/12 v0.1 beamer theme in the corporate design of NTNU]
+%
+% necessary packages
+\PassOptionsToPackage{default, scale=1}{opensans}
+\RequirePackage{opensans}
+\RequirePackage{tikz}
+
+\mode<presentation>
+%
+% define colors
+\definecolor{NTNUBlue}{HTML}{00509e}
+\definecolor{LightGrey}{HTML}{D3D3D3}
+\setbeamerfont{title}{shape=\bfseries, size=\huge}
+\setbeamerfont{subtitle}{series=\mdseries,size=\Large}
+
+%
+% Options
+%
+% (1) display total frame number
+\makeatletter
+\newif\ifntnu@displayNavigation%
+%
+\DeclareOptionBeamer{navigation}[true]{\csname ntnu@displayNavigation#1\endcsname}
+\ExecuteOptionsBeamer{navigation}
+\DeclareOptionBeamer{hidenavigation}{\ntnu@displayNavigationfalse}
+\DeclareOptionBeamer{displaynavigation}{\ntnu@displayNavigationtrue}
+
+\newcommand{\ntnu@logofile}{}
+\DeclareOptionBeamer{slogan}[english]{
+	\ifnum\pdf@strcmp{#1}{enlish}=\z@
+ 		\renewcommand{\ntnu@logofile}{ntnulogo_eng.png}%
+ 	\fi
+	\ifnum\pdf@strcmp{#1}{enlish-white}=\z@
+ 		\renewcommand{\ntnu@logofile}{ntnulogo_eng_neg.png}%
+ 	\fi
+	\ifnum\pdf@strcmp{#1}{norsk}=\z@
+ 		\renewcommand{\ntnu@logofile}{ntnulogo_nsk.png}%
+ 	\fi
+	\ifnum\pdf@strcmp{#1}{norsk-white}=\z@%
+ 		\renewcommand{\ntnu@logofile}{ntnulogo_nsk_neg.png}%
+	\fi
+}
+\ExecuteOptionsBeamer{slogan=english}
+
+%
+%  Option: Display Total Frame Number in Footline (only inf visible) on_/off
+%
+\newif\ifntnu@displayTotalFrameNumber%
+%
+\DeclareOptionBeamer{frametotal}[false]{\csname ntnu@displayTotalFrameNumber#1\endcsname}
+\ExecuteOptionsBeamer{frametotal}
+% alternate variants
+\DeclareOptionBeamer{displayframetotal}{%
+	\ntnu@displayTotalFrameNumbertrue%
+}
+\DeclareOptionBeamer{hideframetotal}{%
+	\ntnu@displayTotalFrameNumberfalse%
+}
+
+\useinnertheme{NTNU}%
+\useoutertheme{NTNUplain}%
+\usecolortheme{NTNU}%
+\makeatother

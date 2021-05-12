@@ -1,0 +1,50 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage[english]{babel}
+\usepackage{booktabs,listings}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usetheme{NTNU}
+
+%
+% Edit your meta data here
+%
+	\title[Your Short Title]{Front page/ put your title here}
+	\subtitle{Subtitle. Author/date/year}
+	\institute{\includegraphics[width=0.7\textwidth]{ntnulogo_eng_neg.png}}
+	\author{Name of the author}
+	\date{\today}
+
+\begin{document}
+	\maketitle
+	\tableofcontents
+
+	\section{Introduction}
+	\begin{frame}{Outer themes}
+		The corporate design team provides four variants (outer themes in latex beamer speaking)
+
+		\begin{description}
+			\item[NTNUcircles] using circles in the background
+			\item[NTNUplain] (Default) a very plain style
+			\item[NTNUstripeleft] with a stripe on the left
+			\item[NTNUstripebottom] with a stripe at the bottom
+		\end{description}
+
+		You can switch the theme using for example
+		\lstinline!\\outertheme\{NTNUcircles\}!
+		in your preamble
+	\end{frame}
+	\begin{frame}[fragile]{The available options}
+		\begin{tabular}{lcl}
+			\toprule
+			\textbf{Option} & \textbf{Default} &\textbf{Description} \\
+			\midrule
+			\lstinline!displayframetotal! && the same as \lstinline!!frametotal=true! \\
+			\lstinline!frametotal=true|false! & \lstinline!false! & toggle display the total number of slides\\
+			\lstinline!hideframetotal! && the same as \lstinline!!frametotal=false! \\
+			\lstinline!navigation=true|false! & \lstinline!false! & display navigation symbols
+			\\
+			\bottomrule
+		\end{tabular}
+	\end{frame}
+\end{document}

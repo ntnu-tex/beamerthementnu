@@ -1,0 +1,26 @@
+%
+% Outer Theme, i.e. footline, headline etc
+%
+\ProvidesPackage{beamerouterthemeNTNUplain}[2021/05/12 v0.1 beamer theme in the corporate design of NTNU]
+\makeatletter
+
+\defbeamertemplate*{footline}{NTNUplain}%
+{%
+	\leavevmode%
+	\centering
+	\hbox{
+        \begin{beamercolorbox}[wd=.333333\paperwidth,left]{palette tertiary}%
+		%\includegraphics[width=\textwidth]{\ntnu@logofile}
+        \end{beamercolorbox}
+        \begin{beamercolorbox}[wd=.333333\paperwidth,center]{palette tertiary}%
+        \end{beamercolorbox}
+        \begin{beamercolorbox}[wd=.333333\paperwidth,right]{palette tertiary}%
+            \insertframenumber{}%
+                \ifntnu@displayTotalFrameNumber%
+                    / \inserttotalframenumber%
+                \fi%
+            \hskip12pt%
+        \end{beamercolorbox}
+    }
+}
+\makeatother
