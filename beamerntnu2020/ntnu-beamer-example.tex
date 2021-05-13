@@ -4,11 +4,8 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 
-\usetheme[slogan=english]{NTNU}
+\usetheme[slogan=english, style=stripe]{NTNU}
 
-%
-% Edit your meta data here
-%
 	\title[Your Short Title]{Front page/ put your title here}
 	\subtitle{Subtitle.}
 	\author{Name of the author}
@@ -19,65 +16,17 @@
 	\tableofcontents
 
 	\section{Introduction}
-	\begin{frame}{Outer themes}
-		The corporate design team provides four variants (outer themes in latex beamer speaking)
-
-		\begin{description}
-			\item[NTNUcircles] using circles in the background (not yet available)
-			\item[NTNUplain] a very plain style (Default)
-			\item[NTNUstripeleft] with a stripe on the left (not yet available)
-			\item[NTNUstripebottom] with a stripe at the bottom (not yet available)
-		\end{description}
-
-		You can switch the theme using for example
-		\lstinline!\\outertheme\{NTNUcircles\}!
-		in your preamble
-	\end{frame}
-	\begin{frame}[fragile]{The available options}
-		\begin{tabular}{lcl}
-			\toprule
-			\textbf{Option} & \textbf{Default} &\textbf{Description} \\
-			\midrule
-			\lstinline!displayframetotal! && the same as \lstinline!!frametotal=true! \\
-			\lstinline!frametotal=true|false! & \lstinline!false! & toggle display the total number of slides\\
-			\lstinline!hideframetotal! && the same as \lstinline!!frametotal=false! \\
-			\lstinline!slogan=english|norsk! & \lstinline!norsk! & whether to display english or norsk slogan\\
-			\bottomrule
-		\end{tabular}
-	\end{frame}
-	\begin{frame}{special commands}
-		\begin{description}
-			\item[titlelogo]
-			Set the logo on the title page. By default it is set to the negative english or norsk logo (depending on the chosen slogan), see the slogan option
-		\end{description}
-	\end{frame}
-	\begin{frame}{Special colors}
-%		These colors are taken from \url{https://innsida.ntnu.no/wiki/-/wiki/Norsk/Farger+i+grafisk+profil}
-		\begin{description}
-			\item[{\color{NTNUBlue} NTNUblue}]
-			\item[{\color{NTNULightblue} NTNULightblue}]
-			\item[{\color{NTNUOrange} NTNUOrange}]
-			\item[{\color{NTNUPink} NTNUPink}]
-			\item[{\color{NTNUYellow} NTNUYellow}]
-			\item[{\color{NTNUViolet} NTNUViolet}]
-			\item[{\color{NTNUCyan} NTNUCyan}]
-			\item[{\color{NTNUOcher} NTNUOcher}]
-		\end{description}
-	\end{frame}
-	\begin{frame}{Required packages}
-		The following packages have to be installed for the theme to work
-		\begin{description}
-			\item[calc] for a few computational tricks
-			\item[ifthen] to define some commands
-			\item[pdftexcmds] to define some commands
-			\item[opensans] for the font
-			\item[tikz] for some graphic tricks
-		\end{description}
-		\ \\[\baselineskip]
-		This documentation further uses
-		\begin{description}
-			\item[booktabs] for nice tables
-			\item[listings] for code highlighting
-		\end{description}
+	\begin{frame}{A typical slide}
+		\begin{itemize}
+			\item Write here the introduction
+			\item Use \texttt{itemize} or \texttt{enumerate} to organize your main points.
+		\end{itemize}
+		\begin{block}{Example}
+			Rather than freely writing text in the frame, the use of blocks (such as this) is recommended.
+			Here you can find a short introduction to the basis of beamer:
+			\begin{enumerate}
+				\item https://www.overleaf.com/learn/latex/beamer
+			\end{enumerate}
+		\end{block}
 	\end{frame}
 \end{document}

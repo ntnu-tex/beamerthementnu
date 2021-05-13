@@ -1,10 +1,12 @@
 %
 % Inner theme elements, most prominently the title page
 %
-\ProvidesPackage{beamerinnerthemeTUKL}[2015/05/12 v0.1 beamer theme in the corporate design of NTNU]
+\ProvidesPackage{beamerinnerthemeNTNUplain}[2021/05/13 v0.1 beamer theme in the corporate design of NTNU]
 \makeatletter
 \setbeamertemplate{navigation symbols}{}%
-\defbeamertemplate*{title page}{NTNU}{%
+\setbeamercolor{title}{fg=white}
+\setbeamercolor{subtitle}{fg=white}
+\defbeamertemplate*{title page}{NTNUplain}{%
     \begin{tikzpicture}[remember picture,overlay]% background color
         \node[at=(current page.center),fill=NTNUBlue, minimum width=\paperwidth, minimum height=\paperheight] {};%
     \end{tikzpicture}%

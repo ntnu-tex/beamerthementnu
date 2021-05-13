@@ -20,7 +20,7 @@
 \definecolor{NTNUViolet}{HTML}{482776}
 \definecolor{NTNUCyan}{HTML}{3cbfbe}
 \definecolor{NTNUOcher}{HTML}{cfb887}
-\definecolor{LightGrey}{HTML}{D3D3D3}
+\definecolor{LightGrey}{HTML}{bebebe}
 \setbeamerfont{title}{shape=\bfseries, size=\huge}
 \setbeamerfont{subtitle}{series=\mdseries, size=\Large}
 \defbeamertemplate{footline}{NTNUempty}{}
@@ -29,6 +29,8 @@
 %
 \newcommand{\ntnu@titlelogo}{}
 \newcommand{\titlelogo}[1]{\renewcommand{\ntnu@titlelogo}{#1}}
+\newcommand{\ntnu@name}{}
+\newcommand{\ntnu@sidelogo}{}
 %
 % Options
 %
@@ -39,17 +41,31 @@
 \newcommand{\ntnu@logofile}{}
 \DeclareOptionBeamer{slogan}[english]{
 	\ifnum\pdf@strcmp{#1}{english}=\z@%
- 		\renewcommand{\ntnu@logofile}{ntnulogo_eng.png}%
- 		\titlelogo{ntnulogo_eng_neg.png}%
+ 		\renewcommand{\ntnu@logofile}{ntnu_bredde_eng.png}%
+ 		\titlelogo{ntnu_bredde_eng_neg.png}%
+		\renewcommand{\ntnu@name}{Norwegian University of Science and Technology}
+		\renewcommand{\ntnu@sidelogo}{ntnu_alt_versjon_uten_slagord_neg.png}
  	\fi
 	\ifnum\pdf@strcmp{#1}{norsk}=\z@%
- 		\renewcommand{\ntnu@logofile}{ntnulogo_nsk.png}%
- 		\titlelogo{ntnulogo_nsk_neg.png}%
+ 		\renewcommand{\ntnu@logofile}{ntnu_med_slagord_bredde_bokmaal.png}%
+ 		\titlelogo{ntnu_med_slagord_bredde_bokmaal_neg.png}%
+		\renewcommand{\ntnu@name}{Norges teknisk-naturvitenskapelige universitet}
+		\renewcommand{\ntnu@sidelogo}{ntnu_alt_versjon_uten_slagord_neg.png}
  	\fi
 }
 \ExecuteOptionsBeamer{slogan}
 
-
+\DeclareOptionBeamer{style}[plain]{
+	\ifnum\pdf@strcmp{#1}{plain}=\z@%
+		\useinnertheme{NTNUplain}%
+		\useoutertheme{NTNUplain}%
+ 	\fi
+	\ifnum\pdf@strcmp{#1}{stripe}=\z@%
+		\useinnertheme{NTNUstripe}%
+		\useoutertheme{NTNUstripe}%
+ 	\fi
+}
+\ExecuteOptionsBeamer{style}
 %
 %  Option: Display Total Frame Number in Footline (only inf visible) on_/off
 %
@@ -73,8 +89,6 @@
 % Set subtheme details
 %
 \usefonttheme{structurebold}
-\useinnertheme{NTNU}%
-\useoutertheme{NTNUplain}%
 \usecolortheme{NTNU}%
 \hypersetup{colorlinks,linkcolor=NTNUBlue,urlcolor=NTNUBlue}
 \mode<all>
