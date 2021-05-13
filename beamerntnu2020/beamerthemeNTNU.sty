@@ -31,6 +31,7 @@
 \newcommand{\titlelogo}[1]{\renewcommand{\ntnu@titlelogo}{#1}}
 \newcommand{\ntnu@name}{}
 \newcommand{\ntnu@sidelogo}{}
+\newlength{\footlineheight}
 %
 % Options
 %
@@ -63,6 +64,10 @@
 	\ifnum\pdf@strcmp{#1}{stripe}=\z@%
 		\useinnertheme{NTNUstripe}%
 		\useoutertheme{NTNUstripe}%
+ 	\fi
+	\ifnum\pdf@strcmp{#1}{stripebottom}=\z@%
+		\useinnertheme{NTNUstripebottom}%
+		\useoutertheme{NTNUstripebottom}%
  	\fi
 }
 \ExecuteOptionsBeamer{style}

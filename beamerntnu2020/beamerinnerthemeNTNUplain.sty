@@ -5,7 +5,9 @@
 \makeatletter
 \setbeamertemplate{navigation symbols}{}%
 \setbeamercolor{title}{fg=white}
-\setbeamercolor{subtitle}{fg=white}
+\setbeamercolor{subtitle}{fg=LightGrey}
+\setbeamercolor{author}{fg=white}
+\setbeamercolor{date}{fg=LightGrey}
 \defbeamertemplate*{title page}{NTNUplain}{%
     \begin{tikzpicture}[remember picture,overlay]% background color
         \node[at=(current page.center),fill=NTNUBlue, minimum width=\paperwidth, minimum height=\paperheight] {};%
@@ -26,9 +28,9 @@
         \fi%
     \end{beamercolorbox}%
     \begin{beamercolorbox}[sep=8pt,center,colsep=-4bp,rounded=true,shadow=true]{author}
-        \usebeamerfont{author}\insertauthor
+        \usebeamerfont{author}\color{white}\usebeamercolor[fg]{author}\insertauthor
     \end{beamercolorbox}
     \begin{beamercolorbox}[sep=8pt,center,colsep=-4bp,rounded=true,shadow=true]{date}
-        \usebeamerfont{date}\insertdate
+        \usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate
     \end{beamercolorbox}\vskip0.5em
 }
