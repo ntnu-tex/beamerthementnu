@@ -1,0 +1,187 @@
+\mode<presentation>
+
+\usepackage{beamerntnu2017common}
+
+\DeclareOptionBeamer{style}{\def\beamer@ntnu@style{#1}}
+\DeclareOptionBeamer{language}{\def\beamer@ntnu@language{#1}}
+\ProcessOptionsBeamer\relax
+
+% Frame title
+\defbeamertemplate*{frametitle}{ntnu2017}[1][left]
+{
+  \@tempdima=\textwidth%
+  \advance\@tempdima by\beamer@rightmargin%
+  \vskip0.4cm%
+  \begin{beamercolorbox}[sep=.2cm,#1,wd=\the\@tempdima]{frametitle}
+    \if@tempswa\else\csname beamer@fte#1\endcsname\fi%
+    \usebeamerfont{frametitle}\insertframetitle\par%
+    {%
+      \usebeamerfont{framesubtitle}%
+      \usebeamercolor[fg]{framesubtitle}%
+      \insertframesubtitle\par%
+    }%
+  \end{beamercolorbox}
+}
+
+% Background
+\defbeamertemplate{background}{vertical}
+{
+  \includegraphics[height=\paperheight]{gfx/vertical-\aspect}%
+}
+
+\defbeamertemplate{background}{horizontal}{}
+\defbeamertemplate{background}{simple}{}
+
+\ExplSyntaxOn
+\str_case_e:nnF {\aspect} {
+  {169}{
+     \def\circlesx{13.95}
+     \def\circlesy{-2.7}
+     \def\circlesw{2.5cm}
+  }
+}
+{  % Otherwise: 43, we should assume, but let's catch all
+  \def\circlesx{11.20}
+  \def\circlesy{-2.3}
+  \def\circlesw{2.0cm}
+}
+\ExplSyntaxOff
+
+\defbeamertemplate{background}{ntnu}
+{
+  \begin{picture}(0,0)
+    \setlength{\unitlength}{1.0cm}
+    \put(\circlesx,\circlesy){\includegraphics[width=\circlesw]{gfx/sirkler}}
+  \end{picture}
+}
+
+% Define empty backgrounds for use with titlepage
+\defbeamertemplate{background}{titlehorizontal}{}
+\defbeamertemplate{background}{titleverticall}{}
+\defbeamertemplate{background}{titlesimple}{}
+\defbeamertemplate{background}{titlentnu}{}
+
+\setbeamertemplate{background}[\beamer@ntnu@style]
+
+% Footline definition
+
+% Variables
+\ExplSyntaxOn
+\str_case_e:nnF {\aspect} {
+  {169} {
+    \def\barheight{3.8mm}
+    \def\barmargin{2.4mm}
+    \def\logowidth{2.2cm}
+    \def\logooffset{-3.7mm}
+    \def\simplelogooffset{6mm}
+    \def\simplelogowidth{2.3cm}
+    \def\simplebarmargin{3.2mm}
+  }
+}
+{ % Otherwise: 43, we should assume, but let's catch all
+  \def\barheight{3.0mm}
+  \def\barmargin{2.0mm}
+  \def\logowidth{1.7cm}
+  \def\logooffset{-3mm}
+  \def\simplelogooffset{6mm}
+  \def\simplelogowidth{1.8cm}
+  \def\simplebarmargin{3.6mm}
+}
+\ExplSyntaxOff
+
+\defbeamertemplate{footline}{horizontal}
+{
+  \hbox{%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=\barheight,dp=\barmargin]{footline}%
+      \hspace{4mm}\usebeamerfont{pagenumber}\textbf{\insertframenumber}%
+      \hfill \raisebox{\logooffset}{\includegraphics[width=\logowidth]{gfx/ntnu-inverted}}%
+    \end{beamercolorbox}%
+  }
+}
+
+\defbeamertemplate{footline}{vertical}
+{
+  \hbox{%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=\barheight,dp=\barmargin]{footline}%
+      \hspace{5mm}\usebeamerfont{pagenumber}\textbf{\insertframenumber}%
+      \hfill
+    \end{beamercolorbox}%
+  }
+}
+
+\defbeamertemplate{slogan}{bm}{Kunnskap for en \textcolor{ntnublue}{bedre} verden}
+\defbeamertemplate{slogan}{nn}{Kunnskap for ei \textcolor{ntnublue}{betre} verd}
+\defbeamertemplate{slogan}{en}{Norwegian University of Science and Technology}
+\setbeamertemplate{slogan}[\beamer@ntnu@language]
+
+\defbeamertemplate{footline}{simple}
+{
+  \hbox{ 
+    \begin{beamercolorbox}[wd=\paperwidth,ht=\barheight,dp=\simplebarmargin]{footline}%
+      \hspace*{\simplelogooffset}
+      \raisebox{\logooffset}{\includegraphics[width=\simplelogowidth]{gfx/ntnu}}%
+      \usebeamertemplate*{slogan}
+      \hfill
+      \usebeamerfont{pagenumber}\textbf{\insertframenumber}\hspace*{5mm}%
+    \end{beamercolorbox}%
+  }
+}
+
+\defbeamertemplate{footline}{ntnu}
+{
+  \hbox{%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=\barheight,dp=\barmargin]{footline}%
+      \hfill
+      \usebeamerfont{pagenumber}\textbf{\insertframenumber}\hspace*{5mm}%
+    \end{beamercolorbox}%
+  }
+}
+
+\setbeamertemplate{footline}[\beamer@ntnu@style]
+
+% Blank footline that can be used for the \ntnutitlepage command,
+% both for backwards compatibility, and in case one wants a title page
+% somewhere else than first.
+\defbeamertemplate{footline}{titlentnu}{}
+\defbeamertemplate{footline}{titlevertical}{}
+
+\defbeamertemplate{footline}{titlehorizontal}
+{
+  \hbox{%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=\barheight,dp=\barmargin]{footline}%
+      \hfill \raisebox{\logooffset}{\includegraphics[width=\logowidth]{gfx/ntnu-inverted}}%
+    \end{beamercolorbox}%
+  }
+}
+
+\defbeamertemplate{footline}{titlesimple}
+{
+  \hbox{
+    \begin{beamercolorbox}[wd=\paperwidth,ht=\barheight,dp=\simplebarmargin]{footline}%
+      % Removing these two lines will make the footline disappear for
+      % other slides as well. I'll call that a bug.
+    \end{beamercolorbox}%
+  }
+}
+
+\ExplSyntaxOn
+\str_case_e:nnF {\beamer@ntnu@style} {
+  {vertical} {
+    \def\textml{1.6cm}
+    \def\textmr{.5cm}
+  }
+  {horizontal} {
+    \def\textml{.5cm}
+    \def\textmr{.5cm}
+  }
+}
+{  % "False"
+  \def\footlinealign{right}
+  \def\textml{.5cm}
+  \def\textmr{.5cm}
+}
+\ExplSyntaxOff
+
+\setbeamersize{text margin left=\textml, text margin right=\textmr}
+
+\mode<all>
