@@ -28,11 +28,10 @@
 
 			This documentation
 			\begin{itemize}
-				\item Gets you started (slide \#\ref{slide:start})
-				\item Illustrates what the three styles look like (from slide \#\ref{slide:styles-demo} onwards)
-				\item Documents all available options and features (Slide \#\ref{slide:developer})
+				\item gets you started (slide \#\ref{slide:start})
+				\item illustrates what the three styles look like (from slide \#\ref{slide:styles-demo} onwards)
+				\item documents all available options and features (Slide \#\ref{slide:developer})
 			\end{itemize}
-			gets you started
 		\end{frame}
 	\section{Getting started}
 		\begin{frame}[fragile]{Start A Presentation}
@@ -51,9 +50,24 @@
 			You can repeat this whenever you start preparing a new presentation.
 		\end{frame}
 	\section{Example Slides in Different Themes}
-	\includepdf{demo-ntnu-plain.pdf}
-	\includepdf{demo-ntnu-horizontal.pdf}
-	\includepdf{demo-ntnu-vertical.pdf}
+	\begin{frame}[fragile]{Different styles}
+		The following 6 slides illustrate the three styles you can choose,
+		first showing the title page and then a usual slide that also explains how to chosse this style.
+
+		Note that since \lstinline!slogan=english! and \lstinline!style=plain! are the defaults, if you use
+
+		\lstinline!\usetheme{NTNU}!
+
+		that is the same as
+
+		\lstinline!\usetheme[slogan=english, style=plain]{NTNU}!
+	\end{frame}
+	{
+		\setbeamercolor{background canvas}{bg=}
+		\includepdf[pages={1,2}]{demo-ntnu-plain.pdf}
+		\includepdf[pages={1,2}]{demo-ntnu-horizontal.pdf}
+		\includepdf[pages={1,2}]{demo-ntnu-vertical.pdf}
+	}
 	\section{Developer Guide}
 		\begin{frame}[fragile]{Available options}
 			\label{slide:developer}
