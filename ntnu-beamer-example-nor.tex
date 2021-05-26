@@ -1,0 +1,32 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage[english]{babel}
+\usepackage{booktabs,listings}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usetheme[slogan=norsk]{NTNU}
+
+	\title[Your Short Title]{Front page/ put your title here}
+	\subtitle{Subtitle.}
+	\author{Name of the author}
+	\date{\today}
+
+\begin{document}
+	\maketitle
+	\tableofcontents
+
+	\section{Introduction}
+	\begin{frame}{A typical slide}
+		\begin{itemize}
+			\item Write here the introduction
+			\item Use \texttt{itemize} or \texttt{enumerate} to organize your main points.
+		\end{itemize}
+		\begin{block}{Example}
+			Rather than freely writing text in the frame, the use of blocks (such as this) is recommended.
+			Here you can find a short introduction to the basis of beamer:
+			\begin{enumerate}
+				\item https://www.overleaf.com/learn/latex/beamer
+			\end{enumerate}
+		\end{block}
+	\end{frame}
+\end{document}
