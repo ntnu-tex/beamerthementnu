@@ -1,10 +1,10 @@
 \documentclass[aspectratio=169]{beamer}
 \usepackage[english]{babel}
-\usepackage{booktabs,listings}
+\usepackage{booktabs,listings,pdfpages}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \lstset{basicstyle=\ttfamily}
-
+\setlength{\parskip}{.5\baselineskip}
 \usetheme[slogan=english, style=stripe]{NTNU}
 %
 % Edit your meta data here
@@ -19,67 +19,116 @@
 	\tableofcontents
 
 	\section{Introduction}
-	\begin{frame}[fragile]{The available options}
-		\begin{tabular}{lcl}
-			\toprule
-			\textbf{Option} & \textbf{Default} &\textbf{Description} \\
-			\midrule
-			\lstinline!displayframetotal! && the same as \lstinline!!frametotal=true! \\
-			\lstinline!frametotal=true|false! & \lstinline!false! & toggle display the total number of slides\\
-			\lstinline!hideframetotal! && the same as \lstinline!!frametotal=false! \\
-			\lstinline!slogan=english|norsk! & \lstinline!norsk! & whether to display english or norsk slogan\\
-			\lstinline!style= ...! & \lstinline!plain! & styles, see slide \ref{slide:outer}\\
-			\bottomrule
-		\end{tabular}
-	\end{frame}
-	\begin{frame}{Outer themes}
-		\label{slide:outer}
-		The corporate design team provides four variants (outer themes in latex beamer speaking)
+		\begin{frame}{The \LaTeX{} beamer NTNU Theme}
+			This \LaTeX beamer theme is based on the Powerpoint templates available in \href{https://innsida.ntnu.no/wiki/-/wiki/English/Create+NTNU+presentations\#section-Create+NTNU+presentations-Powerpoint+templates}{Innsida}.
+			The design of these templates is owned by NTNU, and should not be altered
+	substantially without checking it with the \href{https://www.ntnu.no/adm/komm}{Communication Division}.
 
-		\begin{description}
-			\item[NTNUcircles] using circles in the background (not yet available)
-			\item[NTNUplain] a very plain style (Default)
-			\item[NTNUstripe] with a stripe on the left (current)
-			\item[NTNUstripebottom] with a stripe at the bottom
-		\end{description}
+			This documentation assumes, that you have your editor and \LaTeX{}  compiler set up and running. For \LaTeX{} beamer, the full documentation is available at \url{https://texdoc.org/serve/beamer/0}.
 
-		While you can set this using e.g. \lstinline!\\useoutertheme\{NTNUcircles\}! and \lstinline!\\useinnertheme\{NTNUcircles\}!
-		in your preamble, the easier way is the option
-        \lstinline!style=circles|plain|stripe|stripebottom!
-	\end{frame}
-	\begin{frame}{special commands}
-		\begin{description}
-			\item[titlelogo]
-			Set the logo on the title page. By default it is set to the negative english or norsk logo (depending on the chosen slogan), see the slogan option
-		\end{description}
-	\end{frame}
-	\begin{frame}{Special colors}
-%		These colors are taken from \url{https://innsida.ntnu.no/wiki/-/wiki/Norsk/Farger+i+grafisk+profil}
-		\begin{description}
-			\item[{\color{NTNUBlue} NTNUblue}]
-			\item[{\color{NTNULightblue} NTNULightblue}]
-			\item[{\color{NTNUOrange} NTNUOrange}]
-			\item[{\color{NTNUPink} NTNUPink}]
-			\item[{\color{NTNUYellow} NTNUYellow}]
-			\item[{\color{NTNUViolet} NTNUViolet}]
-			\item[{\color{NTNUCyan} NTNUCyan}]
-			\item[{\color{NTNUOcher} NTNUOcher}]
-		\end{description}
-	\end{frame}
-	\begin{frame}{Required packages}
-		The following packages have to be installed for the theme to work
-		\begin{description}
-			\item[calc] for a few computational tricks
-			\item[ifthen] to define some commands
-			\item[pdftexcmds] to define some commands
-			\item[opensans] for the font
-			\item[tikz] for some graphic tricks
-		\end{description}
-		\ \\[\baselineskip]
-		This documentation further uses
-		\begin{description}
-			\item[booktabs] for nice tables
-			\item[listings] for code highlighting
-		\end{description}
-	\end{frame}
+			This documentation
+			\begin{itemize}
+				\item Gets you started (slide \#\ref{slide:start})
+				\item Illustrates what the three styles look like (from slide \#\ref{slide:styles-demo} onwards)
+				\item Documents all available options and features (Slide \#\ref{slide:developer})
+			\end{itemize}
+			gets you started
+		\end{frame}
+	\section{Getting started}
+		\begin{frame}[fragile]{Start A Presentation}
+			\label{slide:start}
+			\begin{enumerate}
+				\item Copy all eight \lstinline!.sty! files (Style files) and all seven \lstinline!.png! files (the logos) to the folder, where you want to write your presentation
+				\item Copy \emph{either} the \lstinline!ntnu-beamer-example-eng.tex! \emph{or}the \lstinline!ntnu-beamer-example-eng.tex! to that folder, too
+				\item Open the just copied \lstinline!.tex! file and start writing your presentation, i.e.
+				\begin{itemize}
+					\item fill out author and title
+					\item fill or comment out (\lstinline!%! at the beginning of the line) the subtitle
+					\item set the date or leave it at the current date
+					\item Start writing your slides (called \lstinline!frames!), two examples are already given in the template)
+				\end{itemize}
+			\end{enumerate}
+			You can repeat this whenever you start preparing a new presentation.
+		\end{frame}
+	\section{Example Slides in Different Themes}
+	\includepdf{demo-ntnu-plain.pdf}
+	\includepdf{demo-ntnu-horizontal.pdf}
+	\includepdf{demo-ntnu-vertical.pdf}
+	\section{Developer Guide}
+		\begin{frame}[fragile]{Available options}
+			\label{slide:developer}
+			You can load the theme using
+
+			\lstinline!\usetheme{NTNU}!
+
+			where you have the following options available
+
+			\begin{tabular}{lcl}
+				\toprule
+				\textbf{Option} & \textbf{Default} &\textbf{Description} \\
+				\midrule
+				\lstinline!displayframetotal! && the same as \lstinline!frametotal=true! \\
+				\lstinline!frametotal=true|false! & \lstinline!false! & toggle display the total number of slides\\
+				\lstinline!hideframetotal! && the same as \lstinline!frametotal=false! \\
+				\lstinline!slogan=english|norsk! & \lstinline!norsk! & whether to display english or norsk slogan\\
+				\lstinline!style= ...! & \lstinline!plain! & styles, see (outer) themes on slide \ref{slide:outer}\\
+				\bottomrule
+			\end{tabular}
+		\end{frame}
+		\begin{frame}[fragile]{Outer themes}
+			\label{slide:outer}
+			The corporate design team provides four variants
+			\\\hfill{\small (outer themes in latex beamer)}
+
+			\begin{description}
+				\item[NTNUplain] a very plain style (Default)
+				\item[NTNUvertical] with a stripe on the left (current)
+				\item[NTNUhorizontal] with a stripe at the bottom
+			\end{description}
+
+			They all three consist of an outer and an innter theme, but the easy way to activate these is the option
+
+			\lstinline!style=plain|vertical|horizontal!
+
+			when loading the theme with
+
+			\lstinline!\usetheme{NTNU}!
+		\end{frame}
+		\begin{frame}[fragile]{special commands}
+			\begin{description}
+				\item[titlelogo]
+				Set the logo on the title page. By default it is set to the negative english or norsk logo (depending on the chosen slogan), see the slogan option, e.g.\,
+				\lstinline!\titlelogo{ntnu_bredde_eng_neg.png}!
+			\end{description}
+		\end{frame}
+		\begin{frame}{Special colors}
+	%		These colors are taken from \url{https://innsida.ntnu.no/wiki/-/wiki/Norsk/Farger+i+grafisk+profil}
+			\begin{description}
+				\item[{\color{NTNUBlue} NTNUblue}] (\#{\color{NTNUBlue}00509e})
+				\item[{\color{NTNULightblue} NTNULightblue}] (\#{\color{NTNULightblue}6096d0})
+				\item[{\color{NTNUOrange} NTNUOrange}] (\#{\color{NTNUOrange}ef8114})
+				\item[{\color{NTNUPink} NTNUPink}] (\#{\color{NTNUPink}b01b81})
+				\item[{\color{NTNUYellow} NTNUYellow}] (\#{\color{NTNUYellow}f7d019})
+				\item[{\color{NTNUViolet} NTNUViolet}] (\#{\color{NTNUViolet}482776})
+				\item[{\color{NTNUCyan} NTNUCyan}] (\#{\color{NTNUCyan}3cbfbe})
+				\item[{\color{NTNUOcher} NTNUOcher}] (\#{\color{NTNUOcher}cfb887})
+				\item[{\color{LightGrey} LightGrey}] (\#{\color{LightGrey}bebebe})
+			\end{description}
+		\end{frame}
+		\begin{frame}{Required packages}
+			The following packages have to be installed for the theme to work
+			\begin{description}
+				\item[calc] for a few computational tricks
+				\item[ifthen] to define some commands
+				\item[pdftexcmds] to define some commands
+				\item[opensans] for the font
+				\item[tikz] for some graphic tricks
+			\end{description}
+			This documentation further uses
+			\begin{description}
+				\item[booktabs] for nice tables
+				\item[listings] for code highlighting
+				\item[pdfpages] to include the examples
+			\end{description}
+		\end{frame}
 \end{document}

@@ -1,0 +1,26 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage[english]{babel}
+\usepackage{booktabs,listings}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\lstset{basicstyle=\ttfamily}
+\setlength{\parskip}{.5\baselineskip}
+\usetheme[slogan=english, style=vertical, frametotal=true]{NTNU}
+%
+% Edit your meta data here
+%
+	\title{\LaTeX{}-Beamer Style for NTNU}
+	\subtitle{Demo of the  \texttt{vertical} style}
+	\author{Ronny Bergmann}
+	\date{\today}
+\begin{document}
+	\maketitle
+		\begin{frame}[fragile]{A slide in \texttt{vertical} style}
+			Here you can see that the \texttt{vertical} style has a vertical line on the left with the logo in white and the name of the university on the title (see previous slide).
+
+			The slogan can be english or norwegian depending on the \lstinline!slogan=! option. Here it is set to \lstinline!english!
+
+			The slide number can also have the total number of slides setting \lstinline!frametotal=true!,
+            as you can see here (the default is \lstinline!false!).
+		\end{frame}
+\end{document}
