@@ -61,13 +61,13 @@
 		\useinnertheme{NTNUplain}%
 		\useoutertheme{NTNUplain}%
  	\fi
-	\ifnum\pdf@strcmp{#1}{stripe}=\z@%
-		\useinnertheme{NTNUstripe}%
-		\useoutertheme{NTNUstripe}%
+	\ifnum\pdf@strcmp{#1}{vertical}=\z@%
+		\useinnertheme{NTNUvertical}%
+		\useoutertheme{NTNUvertical}%
  	\fi
-	\ifnum\pdf@strcmp{#1}{stripebottom}=\z@%
-		\useinnertheme{NTNUstripebottom}%
-		\useoutertheme{NTNUstripebottom}%
+	\ifnum\pdf@strcmp{#1}{horizontal}=\z@%
+		\useinnertheme{NTNUhorizontal}%
+		\useoutertheme{NTNUhorizontal}%
  	\fi
 }
 \ExecuteOptionsBeamer{style}
