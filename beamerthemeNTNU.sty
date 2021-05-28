@@ -1,4 +1,4 @@
-\ProvidesPackage{beamerthemeNTNU}[2021/05/12 v0.1 beamer theme in the corporate design of NTNU]
+\ProvidesPackage{beamerthemeNTNU}[2021/05/26 v1.0 A LaTeX beamer theme in the corporate design of NTNU]
 %
 % necessary packages
 \PassOptionsToPackage{default, scale=1}{opensans}
@@ -61,13 +61,13 @@
 		\useinnertheme{NTNUplain}%
 		\useoutertheme{NTNUplain}%
  	\fi
-	\ifnum\pdf@strcmp{#1}{stripe}=\z@%
-		\useinnertheme{NTNUstripe}%
-		\useoutertheme{NTNUstripe}%
+	\ifnum\pdf@strcmp{#1}{vertical}=\z@%
+		\useinnertheme{NTNUvertical}%
+		\useoutertheme{NTNUvertical}%
  	\fi
-	\ifnum\pdf@strcmp{#1}{stripebottom}=\z@%
-		\useinnertheme{NTNUstripebottom}%
-		\useoutertheme{NTNUstripebottom}%
+	\ifnum\pdf@strcmp{#1}{horizontal}=\z@%
+		\useinnertheme{NTNUhorizontal}%
+		\useoutertheme{NTNUhorizontal}%
  	\fi
 }
 \ExecuteOptionsBeamer{style}

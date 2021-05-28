@@ -1,0 +1,30 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage[english]{babel}
+\usepackage{booktabs,listings}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\lstset{basicstyle=\ttfamily}
+\setlength{\parskip}{.5\baselineskip}
+\usetheme[slogan=english, style=plain]{NTNU}
+%
+% Edit your meta data here
+%
+	\title{\LaTeX{}-Beamer Style for NTNU}
+	\subtitle{Demo of the  \texttt{plain} style}
+	\author{Ronny Bergmann}
+	\date{\today}
+
+\begin{document}
+	\maketitle
+    \begin{frame}[fragile]{A slide in \texttt{plain} style}
+        This style is set up with
+
+        \lstinline!\usetheme[slogan=english, style=plain]{NTNU}!
+
+        Here you can see that the \texttt{plain} (default) style has just a logo in the bottom left and a slide number in the bottom right.
+
+        The slogan can be english or norwegian depending on the \lstinline!slogan=! option. Here it is set to \lstinline!english! (default).
+
+        The slide number can also have the total number of slides setting \lstinline!frametotal=true!, which is \lstinline!false! (the default) here.
+    \end{frame}
+\end{document}
