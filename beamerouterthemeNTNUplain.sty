@@ -1,0 +1,42 @@
+%
+% Outer Theme, i.e. footline, headline etc
+%
+\ProvidesPackage{beamerouterthemeNTNUplain}[2021/05/26 v1.0 A LaTeX beamer theme in the corporate design of NTNU]
+\makeatletter
+
+\setbeamerfont{footline}{size=\tiny}
+\setlength{\footlineheight}{0.1\paperheight}
+
+\defbeamertemplate*{footline}{NTNUplain}%
+{%
+	\leavevmode%
+	\centering
+	\hbox{
+	\begin{beamercolorbox}[wd=.666666\paperwidth,ht=\footlineheight,dp=0.4\footlineheight,left]{palette tertiary}%
+		\hspace{3em}\includegraphics[width=.3\textwidth]{\ntnu@logofile}
+		\end{beamercolorbox}\hspace{-1pt}%Hacked up to now
+		\begin{beamercolorbox}[wd=.333333\paperwidth,ht=\footlineheight,dp=0.4\footlineheight,right]{palette tertiary}%
+            \hfill
+            \usebeamercolor[fg]{page number in head/foot}%
+    		\usebeamerfont{page number in head/foot}
+			\insertframenumber{}%
+			\ifntnu@displayTotalFrameNumber%
+				\ /\ \inserttotalframenumber%
+			\fi%
+ 			\hspace*{3em}%
+ 		\end{beamercolorbox}
+ 	}%
+}
+\renewcommand{\maketitle}[0]
+{%
+ 	\setbeamertemplate{headline}[NTNU]%
+ 	\setbeamertemplate{footline}[NTNUempty]%
+ 	\ifbeamer@inframe%
+ 		\titlepage%
+ 	\else%
+ 		\frame[t]{\titlepage}%
+ 	\fi%
+  	\setbeamertemplate{headline}[NTNU]%
+	\setbeamertemplate{footline}[NTNUplain]%
+}
+\makeatother

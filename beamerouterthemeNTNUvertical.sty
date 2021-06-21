@@ -1,0 +1,45 @@
+%
+% Outer Theme, i.e. footline, headline etc
+%
+\ProvidesPackage{beamerouterthemeNTNUstripe}[2021/05/26 v1.0 A LaTeX beamer theme in the corporate design of NTNU]
+\makeatletter
+\mode<presentation>
+
+\defbeamertemplate*{footline}{NTNUstripe}{}
+
+\setbeamersize{sidebar width left=.075\paperwidth}
+\setbeamercolor{page number in head/foot}{fg=white}
+\setbeamerfont{page number in head/foot}{size=\footnotesize, series=\mdseries}
+\defbeamertemplate*{sidebar left}{NTNUstripe}{%
+    \vskip4em%
+	\hspace*{.0075\paperwidth}\includegraphics[width=.055\paperwidth]{\ntnu@sidelogo}%
+	\vfill
+	\begin{beamercolorbox}[ht=2em, wd=.075\paperwidth, dp=.02\paperwidth, center]{footline}%
+		\usebeamercolor[fg]{page number in head/foot}%
+    	\usebeamerfont{page number in head/foot}
+		\insertframenumber{}%
+		\ifntnu@displayTotalFrameNumber
+			\ /\ \inserttotalframenumber%
+		\fi%
+	\end{beamercolorbox}
+}%
+\defbeamertemplate*{sidebar left}{NTNUstripeplain}{%
+    \vskip4em%
+	\hspace*{.0075\paperwidth}\includegraphics[width=.06\paperwidth]{\ntnu@sidelogo}%
+    \begin{tikzpicture}[remember picture,overlay]% title
+        \node[text=white, rotate=90, anchor=center, font=\tiny\mdseries, yshift=-.04\paperwidth, xshift=-.09\paperheight, scale=1.2] at (current page.west) {\ntnu@name};%
+    \end{tikzpicture}%
+}%
+
+\renewcommand{\maketitle}[0]
+{%
+ 	\setbeamertemplate{sidebar left}[NTNUstripeplain]%
+ 	\ifbeamer@inframe%
+ 		\titlepage%
+ 	\else%
+ 		\frame[t]{\titlepage}%
+ 	\fi%
+ 	\setbeamertemplate{sidebar left}[NTNUstripe]%
+}
+\makeatother
+\mode<all>

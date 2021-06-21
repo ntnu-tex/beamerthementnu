@@ -1,0 +1,65 @@
+%
+% Outer Theme, i.e. footline, headline etc
+%
+\ProvidesPackage{beamerouterthemeNTNUplain}[2021/05/26 v1.0 A LaTeX beamer theme in the corporate design of NTNU]
+\makeatletter
+
+\setbeamerfont{footline}{size=\tiny}
+\setbeamercolor{text in footline}{bg=NTNUBlue, fg=white}
+\setbeamercolor{palette tertiary}{bg=NTNUBlue, fg=white}
+\setbeamercolor{page number in head/foot}{fg=white}
+\setlength{\footlineheight}{0.05\paperheight}
+\defbeamertemplate*{footline}{NTNUstripebottom}%
+{%
+	\leavevmode%
+	\centering
+	\hbox{
+	\begin{beamercolorbox}[wd=.666666\paperwidth,ht=\footlineheight,dp=0.4\footlineheight,left]{palette tertiary}%
+ 			\hspace*{3em}%
+            \vspace*{.1\footlineheight}%
+            \usebeamercolor[fg]{page number in head/foot}%
+    		\usebeamerfont{page number in head/foot}%
+			\insertframenumber{}%
+			\ifntnu@displayTotalFrameNumber%
+				\ /\ \inserttotalframenumber%
+			\fi%
+		\end{beamercolorbox}\hspace{-1pt}%Hacked up to now
+		\begin{beamercolorbox}[wd=.333333\paperwidth,ht=\footlineheight,dp=0.4\footlineheight,right]{palette tertiary}%
+            \hfill%
+            \vspace*{-.1\footlineheight}
+            \includegraphics[height=.8\footlineheight]{ntnu_uten_slagord_neg.png}
+ 			\hspace*{2em}%
+ 		\end{beamercolorbox}
+ 	}%
+}
+\defbeamertemplate*{footline}{NTNUstripebottomempty}%
+{%
+	\leavevmode%
+	\centering
+	\hbox{
+	\begin{beamercolorbox}[wd=.666666\paperwidth,ht=\footlineheight,dp=0.4\footlineheight,left]{palette tertiary}%
+	\end{beamercolorbox}\hspace{-1pt}%Hacked up to now
+		\begin{beamercolorbox}[wd=.333333\paperwidth,ht=\footlineheight,dp=0.4\footlineheight,right]{palette tertiary}%
+            \hfill%
+            \vspace*{-.1\footlineheight}
+            \includegraphics[height=.8\footlineheight]{ntnu_uten_slagord_neg.png}
+ 			\hspace*{2em}%
+ 		\end{beamercolorbox}
+ 	}%
+    \begin{tikzpicture}[remember picture,overlay]% title
+        \node[text=NTNUBlue, rotate=90, anchor=center, font=\tiny\mdseries, yshift=.04\paperwidth, xshift=.03\paperheight, scale=1.4] at (current page.east) {\ntnu@name};%
+    \end{tikzpicture}%
+}
+\renewcommand{\maketitle}[0]
+{%
+ 	\setbeamertemplate{headline}[NTNU]%
+ 	\setbeamertemplate{footline}[NTNUstripebottomempty]%
+ 	\ifbeamer@inframe%
+ 		\titlepage%
+ 	\else%
+ 		\frame[t]{\titlepage}%
+ 	\fi%
+  	\setbeamertemplate{headline}[NTNU]%
+	\setbeamertemplate{footline}[NTNUstripebottom]%
+}
+\makeatother

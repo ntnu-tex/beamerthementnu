@@ -1,0 +1,100 @@
+\ProvidesPackage{beamerthemeNTNU}[2021/05/26 v1.0 A LaTeX beamer theme in the corporate design of NTNU]
+%
+% necessary packages
+\PassOptionsToPackage{default, scale=1}{opensans}
+\RequirePackage{opensans}
+\RequirePackage{ifthen,pdftexcmds}
+\RequirePackage{calc,tikz}
+\makeatletter
+
+\mode<presentation>
+%
+% define colors
+\definecolor{NTNUBlue}{HTML}{00509e}
+% support colors
+\definecolor{NTNUgreen}{HTML}{bcd025}
+\definecolor{NTNULightblue}{HTML}{6096d0}
+\definecolor{NTNUOrange}{HTML}{ef8114}
+\definecolor{NTNUPink}{HTML}{b01b81}
+\definecolor{NTNUYellow}{HTML}{f7d019}
+\definecolor{NTNUViolet}{HTML}{482776}
+\definecolor{NTNUCyan}{HTML}{3cbfbe}
+\definecolor{NTNUOcher}{HTML}{cfb887}
+\definecolor{LightGrey}{HTML}{bebebe}
+\setbeamerfont{title}{shape=\bfseries, size=\huge}
+\setbeamerfont{subtitle}{series=\mdseries, size=\Large}
+\defbeamertemplate{footline}{NTNUempty}{}
+%
+% Commands
+%
+\newcommand{\ntnu@titlelogo}{}
+\newcommand{\titlelogo}[1]{\renewcommand{\ntnu@titlelogo}{#1}}
+\newcommand{\ntnu@name}{}
+\newcommand{\ntnu@sidelogo}{}
+\newlength{\footlineheight}
+%
+% Options
+%
+% (1) display total frame number
+%
+%  Option: Display Total Frame Number in Footline (only inf visible) on_/off
+%
+\newcommand{\ntnu@logofile}{}
+\DeclareOptionBeamer{slogan}[english]{
+	\ifnum\pdf@strcmp{#1}{english}=\z@%
+ 		\renewcommand{\ntnu@logofile}{ntnu_bredde_eng.png}%
+ 		\titlelogo{ntnu_bredde_eng_neg.png}%
+		\renewcommand{\ntnu@name}{Norwegian University of Science and Technology}
+		\renewcommand{\ntnu@sidelogo}{ntnu_alt_versjon_uten_slagord_neg.png}
+ 	\fi
+	\ifnum\pdf@strcmp{#1}{norsk}=\z@%
+ 		\renewcommand{\ntnu@logofile}{ntnu_med_slagord_bredde_bokmaal.png}%
+ 		\titlelogo{ntnu_med_slagord_bredde_bokmaal_neg.png}%
+		\renewcommand{\ntnu@name}{Norges teknisk-naturvitenskapelige universitet}
+		\renewcommand{\ntnu@sidelogo}{ntnu_alt_versjon_uten_slagord_neg.png}
+ 	\fi
+}
+\ExecuteOptionsBeamer{slogan}
+
+\DeclareOptionBeamer{style}[plain]{
+	\ifnum\pdf@strcmp{#1}{plain}=\z@%
+		\useinnertheme{NTNUplain}%
+		\useoutertheme{NTNUplain}%
+ 	\fi
+	\ifnum\pdf@strcmp{#1}{vertical}=\z@%
+		\useinnertheme{NTNUvertical}%
+		\useoutertheme{NTNUvertical}%
+ 	\fi
+	\ifnum\pdf@strcmp{#1}{horizontal}=\z@%
+		\useinnertheme{NTNUhorizontal}%
+		\useoutertheme{NTNUhorizontal}%
+ 	\fi
+}
+\ExecuteOptionsBeamer{style}
+%
+%  Option: Display Total Frame Number in Footline (only inf visible) on_/off
+%
+\newif\ifntnu@displayTotalFrameNumber%
+%
+\DeclareOptionBeamer{frametotal}[false]{\csname ntnu@displayTotalFrameNumber#1\endcsname}
+\ExecuteOptionsBeamer{frametotal}
+% alternate variants
+\DeclareOptionBeamer{displayframetotal}{%
+	\ntnu@displayTotalFrameNumbertrue%
+}
+\DeclareOptionBeamer{hideframetotal}{%
+	\ntnu@displayTotalFrameNumberfalse%
+}
+%
+% All options defined - process
+%
+\ProcessOptionsBeamer
+
+%
+% Set subtheme details
+%
+\usefonttheme{structurebold}
+\usecolortheme{NTNU}%
+\hypersetup{colorlinks,linkcolor=NTNUBlue,urlcolor=NTNUBlue}
+\mode<all>
+\makeatother

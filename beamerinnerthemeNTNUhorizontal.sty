@@ -1,0 +1,18 @@
+%
+% Inner theme elements, most prominently the title page
+%
+\ProvidesPackage{beamerinnerthemeNTNUstripe}[2021/05/26 v1.0 A LaTeX beamer theme in the corporate design of NTNU]
+\makeatletter
+\setbeamertemplate{navigation symbols}{}%
+\setbeamercolor{title}{fg=black}
+\setbeamercolor{subtitle}{fg=LightGrey}
+\defbeamertemplate*{title page}{NTNUstripe}{%
+    \vspace{.2\paperheight}
+    {\usebeamerfont{title}\inserttitle\par}%
+    \vskip0.5em%
+    {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+    \vskip1em%
+    {\usebeamerfont{author}\insertauthor}
+    \par
+    {\usebeamerfont{date}\insertdate}
+}

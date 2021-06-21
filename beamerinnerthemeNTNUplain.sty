@@ -1,0 +1,36 @@
+%
+% Inner theme elements, most prominently the title page
+%
+\ProvidesPackage{beamerinnerthemeNTNUplain}[2021/05/26 v1.0 A LaTeX beamer theme in the corporate design of NTNU]
+\makeatletter
+\setbeamertemplate{navigation symbols}{}%
+\setbeamercolor{title}{fg=white}
+\setbeamercolor{subtitle}{fg=LightGrey}
+\setbeamercolor{author}{fg=white}
+\setbeamercolor{date}{fg=LightGrey}
+\defbeamertemplate*{title page}{NTNUplain}{%
+    \begin{tikzpicture}[remember picture,overlay]% background color
+        \node[at=(current page.center),fill=NTNUBlue, minimum width=\paperwidth, minimum height=\paperheight] {};%
+    \end{tikzpicture}%
+    \vfill%
+    \centering
+    \begin{beamercolorbox}[sep=8pt,center,colsep=-4bp,rounded=true,shadow=true]{institute}
+        \includegraphics[width=0.7\textwidth]{\ntnu@titlelogo}
+    \end{beamercolorbox}
+    \vskip2.5em\par
+    {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+    \begin{beamercolorbox}[sep=8pt,center,colsep=-4bp,rounded=true,shadow=true]{title}
+        \usebeamerfont{title}\MakeUppercase{\inserttitle}\par%
+        \ifx\insertsubtitle\@empty%
+        \else%
+        \vskip0.5em%
+        {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+        \fi%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[sep=8pt,center,colsep=-4bp,rounded=true,shadow=true]{author}
+        \usebeamerfont{author}\color{white}\usebeamercolor[fg]{author}\insertauthor
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[sep=8pt,center,colsep=-4bp,rounded=true,shadow=true]{date}
+        \usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate
+    \end{beamercolorbox}\vskip0.5em
+}
