@@ -19,12 +19,14 @@
     \begin{frame}[fragile]{A slide in \texttt{plain} style}
         This style is set up with
 
-        \lstinline!\usetheme[slogan=english, style=plain]{NTNU}!
+        \lstinline!\usetheme[slogan=english, style=plain, mathfont=serif]{NTNU}!
 
         Here you can see that the \texttt{plain} (default) style has just a logo in the bottom left and a slide number in the bottom right.
 
         The slogan can be english or norwegian depending on the \lstinline!slogan=! option. Here it is set to \lstinline!english! (default).
 
         The slide number can also have the total number of slides setting \lstinline!frametotal=true!, which is \lstinline!false! (the default) here.
+        
+        The font in math mode is here set by \lstinline!mathfont=serif! (default: \lstinline!sans!) and looks like this: $E=mc^2$.
     \end{frame}
 \end{document}

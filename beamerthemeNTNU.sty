@@ -86,13 +86,8 @@
 	\ntnu@displayTotalFrameNumberfalse%
 }
 
-\DeclareOptionBeamer{mathfont}[sans]{
-	
-	\ifnum\pdf@strcmp{#1}{sans}=\z@%
-		\usefonttheme{structurebold}%
-	\fi
+\DeclareOptionBeamer{mathfont}[sans]{	
 	\ifnum\pdf@strcmp{#1}{serif}=\z@%
-		\usefonttheme{structurebold}%
 		\renewcommand\mathfamilydefault{\rmdefault}
 	\fi
 }
@@ -105,8 +100,9 @@
 %
 \ProcessOptionsBeamer
 %
+
 % Set subtheme details
-%
+\usefonttheme{structurebold}%
 \usecolortheme{NTNU}%
 \hypersetup{colorlinks,linkcolor=NTNUBlue,urlcolor=NTNUBlue}
 \mode<all>
