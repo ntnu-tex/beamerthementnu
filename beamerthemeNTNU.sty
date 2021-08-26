@@ -1,4 +1,4 @@
-\ProvidesPackage{beamerthemeNTNU}[2021/05/26 v1.0 A LaTeX beamer theme in the corporate design of NTNU]
+\ProvidesPackage{beamerthemeNTNU}[2021/2021/08/26 v1.2 A LaTeX beamer theme in the corporate design of NTNU]
 %
 % necessary packages
 \PassOptionsToPackage{default, scale=1}{opensans}
@@ -86,15 +86,24 @@
 \DeclareOptionBeamer{hideframetotal}{%
 	\ntnu@displayTotalFrameNumberfalse%
 }
+
+\DeclareOptionBeamer{mathfont}[sans]{
+	\ifnum\pdf@strcmp{#1}{serif}=\z@%
+		\renewcommand\mathfamilydefault{\rmdefault}
+	\fi
+}
+\ExecuteOptionsBeamer{mathfont}
+
+
+
 %
 % All options defined - process
 %
 \ProcessOptionsBeamer
+%
 
-%
 % Set subtheme details
-%
-\usefonttheme{structurebold}
+\usefonttheme{structurebold}%
 \usecolortheme{NTNU}%
 \hypersetup{colorlinks,linkcolor=NTNUBlue,urlcolor=NTNUBlue}
 \mode<all>

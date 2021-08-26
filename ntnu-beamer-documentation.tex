@@ -52,15 +52,15 @@
 	\section{Example Slides in Different Themes}
 	\begin{frame}[fragile]{Different styles}
 		The following 6 slides illustrate the three styles you can choose,
-		first showing the title page and then a usual slide that also explains how to chosse this style.
+		first showing the title page and then a usual slide that also explains how to choose this style.
 
-		Note that since \lstinline!slogan=english! and \lstinline!style=plain! are the defaults, if you use
+		Note that since \lstinline!slogan=english!, \lstinline!style=plain!, and \lstinline!mathfont=sans! are the defaults, if you use
 
 		\lstinline!\usetheme{NTNU}!
 
 		that is the same as
 
-		\lstinline!\usetheme[slogan=english, style=plain]{NTNU}!
+		\lstinline!\usetheme[slogan=english, style=plain, mathfont=sans]{NTNU}!
 	\end{frame}
 	{
 		\setbeamercolor{background canvas}{bg=}
@@ -86,6 +86,7 @@
 				\lstinline!hideframetotal! && the same as \lstinline!frametotal=false! \\
 				\lstinline!slogan=english|norsk! & \lstinline!norsk! & whether to display english or norsk slogan\\
 				\lstinline!style= ...! & \lstinline!plain! & styles, see (outer) themes on slide \ref{slide:outer}\\
+				\lstinline!mathfont=sans|serif! & \lstinline!sans! & font style in mathmode\\
 				\bottomrule
 			\end{tabular}
 		\end{frame}
