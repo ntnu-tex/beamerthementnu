@@ -1,16 +1,16 @@
 %
 % Outer Theme, i.e. footline, headline etc
 %
-\ProvidesPackage{beamerouterthemeNTNUstripe}[2021/05/26 v1.0 A LaTeX beamer theme in the corporate design of NTNU]
+\ProvidesPackage{beamerouterthemeNTNUvertical}[2021/05/26 v1.0 A LaTeX beamer theme in the corporate design of NTNU]
 \makeatletter
 \mode<presentation>
 
-\defbeamertemplate*{footline}{NTNUstripe}{}
+\defbeamertemplate*{footline}{NTNUvertical}{}
 
 \setbeamersize{sidebar width left=.075\paperwidth}
 \setbeamercolor{page number in head/foot}{fg=white}
 \setbeamerfont{page number in head/foot}{size=\footnotesize, series=\mdseries}
-\defbeamertemplate*{sidebar left}{NTNUstripe}{%
+\defbeamertemplate*{sidebar left}{NTNUvertical}{%
     \vskip4em%
 	\hspace*{.0075\paperwidth}\includegraphics[width=.055\paperwidth]{\ntnu@sidelogo}%
 	\vfill
@@ -23,7 +23,7 @@
 		\fi%
 	\end{beamercolorbox}
 }%
-\defbeamertemplate*{sidebar left}{NTNUstripeplain}{%
+\defbeamertemplate*{sidebar left}{NTNUverticalplain}{%
     \vskip4em%
 	\hspace*{.0075\paperwidth}\includegraphics[width=.06\paperwidth]{\ntnu@sidelogo}%
     \begin{tikzpicture}[remember picture,overlay]% title
@@ -33,13 +33,13 @@
 
 \renewcommand{\maketitle}[0]
 {%
- 	\setbeamertemplate{sidebar left}[NTNUstripeplain]%
+ 	\setbeamertemplate{sidebar left}[NTNUverticalplain]%
  	\ifbeamer@inframe%
  		\titlepage%
  	\else%
  		\frame[t]{\titlepage}%
  	\fi%
- 	\setbeamertemplate{sidebar left}[NTNUstripe]%
+ 	\setbeamertemplate{sidebar left}[NTNUvertical]%
 }
 \makeatother
 \mode<all>
