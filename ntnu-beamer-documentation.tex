@@ -31,7 +31,7 @@
 			This documentation
 			\begin{itemize}
 				\item gets you started (slide \#\ref{slide:start})
-				\item illustrates what the three styles look like (from slide \#\ref{slide:styles-demo} onwards)
+				\item illustrates what the three styles look like (demo after slide \#\ref{slide:styles-demo} onwards)
 				\item documents all available options and features (Slide \#\ref{slide:developer})
 			\end{itemize}
 		\end{frame}
@@ -53,6 +53,7 @@
 		\end{frame}
 	\section{Example Slides in Different Themes}
 	\begin{frame}[fragile]{Different styles}
+		\label{slide:styles-demo}
 		The following 6 slides illustrate the three styles you can choose,
 		first showing the title page and then a usual slide that also explains how to choose this style.
 
@@ -84,9 +85,9 @@
 				\textbf{Option} & \textbf{Default} &\textbf{Description} \\
 				\midrule
 				\lstinline!displayframetotal! && the same as \lstinline!frametotal=true! \\
-				\lstinline!frametotal=true|false! & \lstinline!false! & toggle display the total number of slides\\
+				\lstinline!frametotal=true|false! & \lstinline!false! & toggle display of total number of slides\\
 				\lstinline!hideframetotal! && the same as \lstinline!frametotal=false! \\
-				\lstinline!slogan=english|norsk! & \lstinline!norsk! & whether to display english or norsk slogan\\
+				\lstinline!slogan=english|norsk! & \lstinline!norsk! & whether to use english or norsk slogan\\
 				\lstinline!style= ...! & \lstinline!plain! & styles, see (outer) themes on slide \ref{slide:outer}\\
 				\lstinline!mathfont=sans|serif! & \lstinline!sans! & font style in mathmode\\
 				\bottomrule
@@ -110,6 +111,8 @@
 			when loading the theme with
 
 			\lstinline!\usetheme{NTNU}!
+
+			as shown on slide \#\ref{slide:styles-demo} and the following example slides.
 		\end{frame}
 		\begin{frame}[fragile]{special commands}
 			\begin{description}
