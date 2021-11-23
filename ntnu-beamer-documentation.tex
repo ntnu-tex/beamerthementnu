@@ -1,11 +1,12 @@
 \documentclass[aspectratio=169]{beamer}
 \usepackage[english]{babel}
-\usepackage{booktabs,listings,pdfpages}
+\usepackage{booktabs,listings,pdfpages, biblatex}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \lstset{basicstyle=\ttfamily}
 \setlength{\parskip}{.5\baselineskip}
 \usetheme[slogan=english, style=vertical]{NTNU}
+\addbibresource{demo.bib}
 %
 % Edit your meta data here
 %
@@ -138,6 +139,14 @@
 				\item[{\color{NTNUOcher} NTNUOcher}] (\#{\color{NTNUOcher}cfb887})
 				\item[{\color{LightGrey} LightGrey}] (\#{\color{LightGrey}bebebe})
 			\end{description}
+		\end{frame}
+		\begin{frame}{Further configurations}
+			Currently all 3 colors of \lstinline!hyperref! are set to {\color{NTNUBlue} NTNUblue}, i.\,e.\
+			\begin{itemize}
+				\item \lstinline!linkcolor! when referring to e.\,g.\ the demo slides slide \#\ref{slide:styles-demo} and following
+				\item \lstinline!urlcolor! when using URLs or hyperref links, for example when including this themes \href{https://github.com/ntnu-tex/beamerthementnu}{github page}
+				\item \lstinline!citecolor! when citing literature like \footfullcite{TeX-book}.
+			\end{itemize}
 		\end{frame}
 		\begin{frame}{Required packages}
 			The following packages have to be installed for the theme to work
