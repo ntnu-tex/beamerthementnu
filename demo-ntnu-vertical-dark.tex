@@ -1,0 +1,32 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage[english]{babel}
+\usepackage{booktabs,listings}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\lstset{basicstyle=\ttfamily}
+\setlength{\parskip}{.5\baselineskip}
+\usetheme[style=vertical, frametotal=false, mode=dark]{NTNU}
+%
+% Edit your meta data here
+%
+	\title{\LaTeX{}-Beamer Style for NTNU}
+	\subtitle{Demo of the  \texttt{vertical} style in dark mode}
+	\author{Ronny Bergmann}
+	\date{\today}
+\begin{document}
+	\maketitle
+		\begin{frame}[fragile]{A slide in \texttt{vertical} style}
+			This style is set up with
+
+			\lstinline!\usetheme[style=vertical, frametotal=false, mode=dark]{NTNU}!
+
+			Here you can see that the \texttt{vertical} style has a vertical line on the left with the logo in white and the name of the university on the title (see previous slide).
+
+			The slogan can be english or norwegian depending on the \lstinline!slogan=! option. Here it is set to its default, \lstinline!english!.
+
+			The slide number can also have the total number of slides setting \lstinline!frametotal=true!,
+            as you can see here (the default is \lstinline!false!).
+
+            The font in math mode is here set by \lstinline!mathfont=sans! (default) and looks like this: \[\mathrm{e}^{-\frac{a}{2}x^2} = \sqrt{\frac{1}{2\pi a}} \int_{-\infty}^\infty\mathrm{d}y\, \mathrm{e}^{-\left(\frac{y^2}{2a} +iy x\right)}\]
+		\end{frame}
+\end{document}

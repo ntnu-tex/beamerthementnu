@@ -1,9 +1,8 @@
 %
 % Outer Theme, i.e. footline, headline etc
 %
-\ProvidesPackage{beamerouterthemeNTNUhorizontal}[2021/08/26 v1.2 A LaTeX beamer theme in the corporate design of NTNU]
+\ProvidesPackage{beamerouterthemeNTNUhorizontal}[2026/04/28 v1.3 A LaTeX beamer theme in the corporate design of NTNU]
 \makeatletter
-
 \setbeamerfont{footline}{size=\tiny}
 \setbeamercolor{text in footline}{bg=NTNUBlue, fg=white}
 \setbeamercolor{palette tertiary}{bg=NTNUBlue, fg=white}
@@ -47,7 +46,11 @@
  		\end{beamercolorbox}%
  	}%
     \begin{tikzpicture}[remember picture,overlay]% title
-        \node[text=NTNUBlue, rotate=90, anchor=center, font=\tiny\mdseries, yshift=.04\paperwidth, xshift=.03\paperheight, scale=1.4] at (current page.east) {\ntnu@name};%
+		\ifntnu@darkmode
+		    \node[text=NTNULightblue, rotate=90, anchor=center, font=\tiny\mdseries, yshift=.04\paperwidth, xshift=.03\paperheight, scale=1.4] at (current page.east) {\ntnu@name};%
+		\else
+		    \node[text=NTNUBlue, rotate=90, anchor=center, font=\tiny\mdseries, yshift=.04\paperwidth, xshift=.03\paperheight, scale=1.4] at (current page.east) {\ntnu@name};%
+		\fi
     \end{tikzpicture}%
 }%
 \renewcommand{\maketitle}[0]

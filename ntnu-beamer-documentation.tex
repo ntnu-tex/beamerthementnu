@@ -59,22 +59,25 @@
 	\section{Example Slides in Different Themes}
 	\begin{frame}[fragile]{Different styles}
 		\label{slide:styles-demo}
-		The following 6 slides illustrate the three styles you can choose,
+		The following 12 slides illustrate the three styles you can choose,
 		first showing the title page and then a usual slide that also explains how to choose this style.
 
-		Note that since \lstinline!slogan=english!, \lstinline!style=plain!, and \lstinline!mathfont=sans! are the defaults, if you use
+		Note that since \lstinline!slogan=english!, \lstinline!style=plain!, \lstinline!mathfont=sans!, and \lstinline!mode=light! are the defaults, if you use
 
 		\lstinline!\usetheme{NTNU}!
 
 		that is the same as
 
-		\lstinline!\usetheme[slogan=english, style=plain, mathfont=sans]{NTNU}!
+		\lstinline!\usetheme[slogan=english, style=plain, mathfont=sans, mode=light]{NTNU}!-
 	\end{frame}
 	{
 		\setbeamercolor{background canvas}{bg=}
 		\includepdf[pages={1,2}]{demo-ntnu-plain.pdf}
 		\includepdf[pages={1,2}]{demo-ntnu-horizontal.pdf}
 		\includepdf[pages={1,2}]{demo-ntnu-vertical.pdf}
+		\includepdf[pages={1,2}]{demo-ntnu-plain-dark.pdf}
+		\includepdf[pages={1,2}]{demo-ntnu-horizontal-dark.pdf}
+		\includepdf[pages={1,2}]{demo-ntnu-vertical-dark.pdf}
 	}
 	\section{Developer Guide}
 		\begin{frame}[fragile]{Available options}
@@ -94,6 +97,7 @@
 				\lstinline!hideframetotal! && the same as \lstinline!frametotal=false! \\
 				\lstinline!slogan=english|norsk! & \lstinline!norsk! & whether to use english or norsk slogan\\
 				\lstinline!style= ...! & \lstinline!plain! & styles, see (outer) themes on slide \ref{slide:outer}\\
+				\lstinline!mode=light|dark! & \lstinline!light! & switch between a light and a dark color scheme\\
 				\lstinline!mathfont=sans|serif! & \lstinline!sans! & font style in mathmode\\
 				\bottomrule
 			\end{tabular}

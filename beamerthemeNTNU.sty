@@ -1,4 +1,4 @@
-\ProvidesPackage{beamerthemeNTNU}[2021/2021/08/26 v1.2 A LaTeX beamer theme in the corporate design of NTNU]
+\ProvidesPackage{beamerthemeNTNU}[2026/04/28 v1.3 A LaTeX beamer theme in the corporate design of NTNU]
 %
 % necessary packages
 \PassOptionsToPackage{default, scale=1}{opensans}
@@ -24,7 +24,6 @@
 \setbeamerfont{title}{shape=\bfseries, size=\huge}
 \setbeamerfont{subtitle}{series=\mdseries, size=\Large}
 \defbeamertemplate{footline}{NTNUempty}{}
-\setbeamercolor{alerted text}{fg=NTNUBlue}
 %
 % Commands
 %
@@ -32,6 +31,8 @@
 \newcommand{\titlelogo}[1]{\renewcommand{\ntnu@titlelogo}{#1}}
 \newcommand{\ntnu@name}{}
 \newcommand{\ntnu@sidelogo}{}
+\newcommand{\ntnu@logofile}{}
+\newcommand{\ntnu@logofiledark}{}
 \newlength{\footlineheight}
 %
 % Options
@@ -40,17 +41,31 @@
 %
 %  Option: Display Total Frame Number in Footline (only inf visible) on_/off
 %
-\newcommand{\ntnu@logofile}{}
+%
+%
+% Light (default) and dark mode
+\newif\ifntnu@darkmode%
+\DeclareOptionBeamer{mode}[light]{
+	\ifnum\pdf@strcmp{#1}{dark}=\z@%
+		\ntnu@darkmodetrue
+	\else
+		\ntnu@darkmodefalse%
+	\fi
+}
+\ExecuteOptionsBeamer{mode}
+
 \DeclareOptionBeamer{slogan}[english]{
 	\ifnum\pdf@strcmp{#1}{english}=\z@%
- 		\renewcommand{\ntnu@logofile}{ntnu_bredde_eng.png}%
- 		\titlelogo{ntnu_bredde_eng_neg.png}%
+		\renewcommand{\ntnu@logofiledark}{ntnu_bredde_eng_neg.png}%
+		\renewcommand{\ntnu@logofile}{ntnu_bredde_eng.png}%
+		\titlelogo{ntnu_bredde_eng_neg.png}%
 		\renewcommand{\ntnu@name}{Norwegian University of Science and Technology}
 		\renewcommand{\ntnu@sidelogo}{ntnu_alt_versjon_uten_slagord_neg.png}
  	\fi
 	\ifnum\pdf@strcmp{#1}{norsk}=\z@%
- 		\renewcommand{\ntnu@logofile}{ntnu_med_slagord_bredde_bokmaal.png}%
- 		\titlelogo{ntnu_med_slagord_bredde_bokmaal_neg.png}%
+		\renewcommand{\ntnu@logofiledark}{ntnu_med_slagord_bredde_bokmaal_neg.png}%
+		\renewcommand{\ntnu@logofile}{ntnu_med_slagord_bredde_bokmaal.png}%
+		\titlelogo{ntnu_med_slagord_bredde_bokmaal_neg.png}%
 		\renewcommand{\ntnu@name}{Norges teknisk-naturvitenskapelige universitet}
 		\renewcommand{\ntnu@sidelogo}{ntnu_alt_versjon_uten_slagord_neg.png}
  	\fi
@@ -72,6 +87,7 @@
  	\fi
 }
 \ExecuteOptionsBeamer{style}
+
 %
 %  Option: Display Total Frame Number in Footline (only inf visible) on_/off
 %

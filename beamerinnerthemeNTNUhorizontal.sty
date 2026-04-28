@@ -4,8 +4,13 @@
 \ProvidesPackage{beamerinnerthemeNTNUvertical}[2021/08/26/ 1.2 A LaTeX beamer theme in the corporate design of NTNU]
 \makeatletter
 \setbeamertemplate{navigation symbols}{}%
+\ifntnu@darkmode
 \setbeamercolor{title}{fg=black}
 \setbeamercolor{subtitle}{fg=LightGrey}
+\else
+\setbeamercolor{title}{fg=white}
+\setbeamercolor{subtitle}{fg=LightGrey}
+\fi
 \defbeamertemplate*{title page}{NTNUvertical}{%
     \vspace{.2\paperheight}
     {\usebeamerfont{title}\inserttitle\par}%

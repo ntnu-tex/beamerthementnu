@@ -15,3 +15,11 @@ If you want to contribute features or help improving this theme, feel free to al
 ## Contributions and license
 
 The design of these templates is owned by NTNU, and should not be altered substantially without checking it with the [Communication Division](https://www.ntnu.no/adm/komm). The Communication Division will not help with technical questions; see maintainers above instead.
+
+## Changelog
+
+### Version 1.3 (2026/04/28)
+Version 1.3 introduces a new keyword `mode=light|dark` so that one can also switch to a (preliminary/inofficial) dark mode of the slides. Then
+* background is black
+* default text is in white
+* highlight color is set to `NTNULightblue` for the title, and alerted text

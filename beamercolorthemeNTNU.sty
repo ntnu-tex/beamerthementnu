@@ -1,5 +1,19 @@
-\ProvidesPackage{beamercolorthemeNTNU}[2021/2021/08/26 v1.2 A LaTeX beamer theme in the corporate design of NTNU]
+\ProvidesPackage{beamercolorthemeNTNU}[2026/04/28 v1.3 A LaTeX beamer theme in the corporate design of NTNU]
 \mode<presentation>
+	\ifntnu@darkmode
+	\setbeamercolor{background canvas}{bg=black}
+	\setbeamercolor{normal text}{fg=white}
+	\setbeamercolor{alerted text}{fg=NTNULightblue}
+    \setbeamercolor{frametitle}{fg=NTNULightblue}
+	\setbeamercolor{itemize item}{fg=NTNULightblue}
+	\setbeamercolor{enumerate item}{fg=NTNULightblue}
+	\setbeamercolor{block title}{fg=NTNULightblue}
+	\setbeamercolor{itemize subitem}{fg=NTNULightblue}
+	\setbeamercolor{enumerate subitem}{fg=NTNULightblue}
+	\setbeamercolor{sidebar}{bg=NTNUBlue}
+    \setbeamercolor{page number in head/foot}{fg=white}
+	\else
+    \setbeamercolor{alerted text}{fg=NTNUBlue}
 	\setbeamercolor{background canvas}{bg=white}
 	\setbeamercolor{frametitle}{fg=NTNUBlue}
 	\setbeamercolor{itemize item}{fg=NTNUBlue}
@@ -8,4 +22,6 @@
 	\setbeamercolor{itemize subitem}{fg=NTNUBlue}
 	\setbeamercolor{enumerate subitem}{fg=NTNUBlue}
 	\setbeamercolor{sidebar}{bg=NTNUBlue}
+  \setbeamercolor{page number in head/foot}{fg=NTNUBlue}
+	\fi
 \mode<all>

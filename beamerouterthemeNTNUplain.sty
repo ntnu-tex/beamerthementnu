@@ -1,7 +1,7 @@
 %
 % Outer Theme, i.e. footline, headline etc
 %
-\ProvidesPackage{beamerouterthemeNTNUplain}[2021/2021/08/26 v1.2 A LaTeX beamer theme in the corporate design of NTNU]
+\ProvidesPackage{beamerouterthemeNTNUplain}[2026/04/28 v1.3 A LaTeX beamer theme in the corporate design of NTNU]
 \makeatletter
 
 \setbeamerfont{footline}{size=\tiny}
@@ -13,7 +13,7 @@
 	\centering
 	\hbox{
 	\begin{beamercolorbox}[wd=.666666\paperwidth,ht=\footlineheight,dp=0.4\footlineheight,left]{palette tertiary}%
-		\hspace{3em}\includegraphics[width=.3\textwidth]{\ntnu@logofile}
+		\hspace{3em}\includegraphics[width=.3\textwidth]{\ifntnu@darkmode\ntnu@logofiledark\else\ntnu@logofile\fi}
 		\end{beamercolorbox}\hspace{-1pt}%Hacked up to now
 		\begin{beamercolorbox}[wd=.333333\paperwidth,ht=\footlineheight,dp=0.4\footlineheight,right]{palette tertiary}%
             \hfill
