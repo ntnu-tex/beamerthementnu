@@ -22,4 +22,6 @@ The design of these templates is owned by NTNU, and should not be altered substa
 Version 1.3 introduces a new keyword `mode=light|dark` so that one can also switch to a (preliminary/inofficial) dark mode of the slides. Then
 * background is black
 * default text is in white
-* highlight color is set to `NTNULightblue` for the title, and alerted text
+* highlight color is set to `NTNULightblue` for the title, alerted text etc.
+
+The documentation has been updated and also illustrates all 3 available styles on how they look in dark mode.
