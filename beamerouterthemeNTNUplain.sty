@@ -7,6 +7,11 @@
 \setbeamerfont{footline}{size=\tiny}
 \setlength{\footlineheight}{0.1\paperheight}
 
+\ifntnu@darkmode
+\setbeamercolor{page number in head/foot}{fg=white}
+\else
+\setbeamercolor{page number in head/foot}{fg=black}
+\fi
 \defbeamertemplate*{footline}{NTNUplain}%
 {%
 	\leavevmode%
